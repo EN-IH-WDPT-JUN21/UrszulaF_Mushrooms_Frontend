@@ -1,0 +1,21 @@
+<nav>
+    <ul class="menu">
+      <li><a class="menu-item" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a></li>
+      <div *ngIf="!loggedIn">
+        <li><a class="menu-item" routerLink="/login" routerLinkActive="active">Login</a></li>
+    </div>  
+    <div *ngIf="!loggedIn">
+      <li><a class="menu-item" routerLink="/register" routerLinkActive="active">Register</a></li>
+    </div>  
+    <div *ngIf="loggedIn">
+  
+      <li><a class="menu-item" (click)="logoutUser()">Logout</a></li>
+    </div>
+    <div *ngIf="loggedIn">
+  
+      <li><a class="menu-item" routerLink="/profile" routerLinkActive="active">User profile</a></li>
+    </div>
+    </ul>
+</nav>
+
+

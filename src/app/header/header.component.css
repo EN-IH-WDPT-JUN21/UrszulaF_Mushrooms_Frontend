@@ -1,0 +1,42 @@
+nav {
+    width: 100%;
+    margin-bottom: 0;
+  }
+  
+  .menu {
+    padding: 8px;
+    background-color: blueviolet;
+    margin-bottom: 0;
+  }
+
+  .menu ul {
+    margin-bottom: 0;
+  }
+  
+  .menu li {
+    display: inline;
+  }
+
+  .menu div {
+    display: inline;
+  }
+  
+  .menu-item {
+    font-size: 1.5em;
+    color: white;
+    padding: 8px;
+    text-decoration: none;
+  }
+  
+  .menu-item:hover {
+    background-color:darkblue;
+  }
+  
+  .active {
+    background-color:darkblue;
+  }
+
+  .example-spacer {
+    flex: 1 1 auto;
+    /* margin-left: 30px; */
+}
