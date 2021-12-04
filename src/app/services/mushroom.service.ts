@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -24,11 +24,27 @@ export class MushroomService {
     return this.http.put(`${this.baseUrl}/update/${mushroomName}`, value);
   }
 
-  deleteMushroom(mushroomName: string): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/${mushroomName}`, { responseType: 'text' });
+  deleteMushroom(id: number): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/delete/${id}`, { responseType: 'text' });
   }
 
   getMushroomsList(): Observable<any> {
     return this.http.get(`${this.baseUrl}`);
   }
+
+  searchMushrooms(mushroomName: string): Observable<any> {
+    return this.http.get(`${this.baseUrl}/containing/${mushroomName}`);
+  }
+
+  // searchAnimals(startAge: number, endAge: number, type:string): Observable<any> {
+  //   let httpParams = new HttpParams();
+  //   if (startAge) httpParams = httpParams.append('startAge', startAge);
+  //   // if (endAge) httpParams = httpParams.append('endAge', endAge);
+  //   // if (type) httpParams = httpParams.append('type', type);
+
+  //   const httpOptions = {
+  //     params: httpParams
+  //   };
+  //   return this.http.get<any>(this.baseUrl + '/adopt', httpOptions);
+  // }
 }

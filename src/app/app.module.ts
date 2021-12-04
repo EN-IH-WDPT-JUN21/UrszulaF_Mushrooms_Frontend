@@ -32,6 +32,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { AuthGuard } from './services/auth.guard';
 import { LoginService } from './services/login.service';
 import { AuthInterceptor } from './services/auth.interceptor';
+import { UserUpdateComponent } from './user-update/user-update.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { AuthInterceptor } from './services/auth.interceptor';
     EventListComponent,
     EventItemComponent,
     EventFormComponent,
-    QuizzFormComponent
+    QuizzFormComponent,
+    UserUpdateComponent
   ],
   imports: [
     BrowserModule,

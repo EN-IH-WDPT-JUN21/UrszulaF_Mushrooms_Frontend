@@ -1,4 +1,4 @@
-export class Employee {
+export class Mushroom {
     public get foodValue(): string {
         return this._foodValue;
     }

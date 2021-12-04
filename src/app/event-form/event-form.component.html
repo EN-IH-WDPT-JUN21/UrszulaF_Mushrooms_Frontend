@@ -1,1 +1,111 @@
-<p>event-form works!</p>
+<div class="bg">
+  <br/>
+  <br/>
+    <div class="container">
+        <h1>New Event Form</h1>
+<div>
+  <form (ngSubmit)="onSubmit()" [formGroup]="eventForm">
+      <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Event title</mat-label>
+          <input type="text" matInput formControlName="eventName" placeholder="Event name...">
+          <mat-error *ngIf="eventName.hasError('invalidName')">
+              Please enter an event title
+          </mat-error> 
+          <mat-error *ngIf="eventName.invalid && (eventName.touched || eventName.dirty)">
+            Please enter at least 3 characters, only letters
+        </mat-error>
+      </mat-form-field>
+
+      <br/>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Event Type</mat-label>
+        <mat-select formControlName="eventTypeName">
+          <mat-option value="" invalid>Select an option</mat-option>
+          <mat-option *ngFor="let eventTypeName of eventTypeNames" [value]="eventTypeName">{{ eventTypeName | titlecase }}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="eventTypeName.invalid && (eventTypeName.touched || eventTypeName.dirty)">
+          Select a valid type 
+        </mat-error>
+      </mat-form-field>  
+
+      <br/>
+
+      <!-- <br/>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>whenEvent</mat-label>
+        <input matInput formControlName="whenEvent" [matDatepicker]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf="whenEvent.invalid && (whenEvent.touched || whenEvent.dirty)">
+          date is required
+        </mat-error>
+        <mat-error *ngIf="whenEvent.hasError('futureDate')">
+          Date can't be in future
+        </mat-error>
+      </mat-form-field> -->
+
+      <div>
+        <label>When:</label>
+        <br/>
+        <input type="datetime-local" placeholder="whenEvent..." formControlName="whenEvent">
+        <p class= "error-msg" *ngIf="whenEvent.invalid && whenEvent.touched"> Please enter a valid date</p>
+        <p class= "error-msg" *ngIf="whenEvent.hasError('pastDate') && whenEvent.touched"> Please enter a future date</p>
+    </div>
+      <!-- <div>
+        <label>When:</label>
+        <br/>
+        <input type="date" placeholder="whenEvent..." formControlName="whenEvent">
+        <p class= "error-msg" *ngIf="whenEvent.invalid && whenEvent.touched"> Please enter a valid date</p>
+        <p class= "error-msg" *ngIf="whenEvent.hasError('pastDate') && whenEvent.touched"> Please enter a future date</p>
+    </div> -->
+
+    <br/>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>duration</mat-label>
+      <input type="number" matInput formControlName="duration" placeholder="Event name...">
+      <mat-error *ngIf="duration.hasError('required')">
+          Please enter an duration
+      </mat-error> 
+      <mat-error *ngIf="duration.invalid && (duration.touched || duration.dirty)">
+        Please enter at least 1 min duration
+    </mat-error>
+  </mat-form-field>
+
+  <br/>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>where</mat-label>
+    <input type="text" matInput formControlName="whereEvent" placeholder="where...">
+    <mat-error *ngIf="whereEvent.hasError('required')">
+        Please enter a place
+    </mat-error> 
+    <mat-error *ngIf="whereEvent.invalid && (whereEvent.touched || whereEvent.dirty)">
+      Please enter at least 3 letters
+  </mat-error>
+</mat-form-field>
+
+<br/>
+<mat-form-field class="example-full-width" appearance="fill">
+  <mat-label>Contact Person</mat-label>
+  <input type="text" matInput formControlName="contactPerson" placeholder="contact person...">
+  <mat-error *ngIf="contactPerson.hasError('required')">
+      Please enter an contact person
+  </mat-error> 
+  <mat-error *ngIf="contactPerson.invalid && (contactPerson.touched || contactPerson.dirty)">
+    Please enter at least 3 characters, only letters
+</mat-error>
+</mat-form-field>
+
+<br/>
+<mat-form-field class="example-full-width" appearance="fill">
+  <mat-label>description</mat-label>
+  <input type="text" matInput formControlName="description" placeholder="description...">
+</mat-form-field>
+
+      <br/>
+      <button mat-stroked-button color="primary" type= "submit" [disabled] = "eventForm.invalid">Submit</button>
+
+  </form>
+</div>
+</div>
+<br/>
+<br/>

@@ -1,1 +1,97 @@
-<p>mushroom-item works!</p>
+
+
+<div class="bg">
+  <br/>
+  <br/>
+    <div class="container">
+        <h1>{{mushroom.mushroomName| titlecase}} details</h1>
+        <a href="#" class="image main"><img src="assets/images/{{mushroom.mushroomName}}.jpg" alt="" width=100% /></a>
+    <div>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>title</th>
+            <th>description</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>name:</td>
+            <td>{{mushroom.mushroomName}}</td>
+          </tr>
+          <tr>
+            <td>other names</td>
+            <td>{{mushroom.otherNames}}</td>
+          </tr>
+          <tr>
+            <td>is edible: </td>
+            <td>{{mushroom.edible}}</td>
+          </tr>
+          <tr>
+            <td>when fruiting: </td>
+            <td>{{mushroom.whenFruiting}}</td>
+          </tr>
+          <tr>
+            <td>where fruiting: </td>
+            <td>{{mushroom.whereFruiting}}</td>
+          </tr>
+          <tr>
+            <td>hat: </td>
+            <td>{{mushroom.hat}}</td>
+          </tr>
+          <tr>
+            <td>stem: </td>
+            <td>{{mushroom.stem}}</td>
+          </tr>
+          <tr>
+            <td>tubes: </td>
+            <td>{{mushroom.tubes}}</td>
+          </tr>
+          <tr>
+            <td>gills: </td>
+            <td>{{mushroom.gills}}</td>
+          </tr>
+          <tr>
+            <td>ring: </td>
+            <td>{{mushroom.ring}}</td>
+          </tr>
+          <tr>
+            <td>pulp: </td>
+            <td>{{mushroom.pulp}}</td>
+          </tr>
+          <tr>
+            <td>smell: </td>
+            <td>{{mushroom.smell}}</td>
+          </tr>
+          <tr>
+            <td>taste: </td>
+            <td>{{mushroom.taste}}</td>
+          </tr>
+          <tr>
+            <td>differentiation: </td>
+            <td>{{mushroom.differentiation}}</td>
+          </tr>
+          <tr>
+            <td>similar: </td>
+            <td>{{mushroom.similar}}</td>
+          </tr>
+          <tr>
+            <td>remarks: </td>
+            <td>{{mushroom.remarks}}</td>
+          </tr>
+          <tr>
+            <td>foodValue: </td>
+            <td>{{mushroom.foodValue}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+
+
+  <!-- <button [disabled]="clicked" (click)="deleteMushroom(mushroom.id); clicked = true;" class="btn btn-danger">Delete</button> -->
+  <button class="btn btn-success" (click)="mushroomList()">Back to List</button>
+</div>
+</div>
+<br/>
+<br/>

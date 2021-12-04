@@ -1,1 +1,58 @@
-<p>event-item works!</p>
+
+
+<div class="bg">
+    <br/>
+    <br/>
+      <div class="container">
+          <h1>{{event.eventName| titlecase}} details</h1>
+          
+      <div>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>title</th>
+              <th>description</th>
+  
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>name:</td>
+              <td>{{event.eventName}}</td>
+            </tr>
+            <tr>
+              <td>type</td>
+              <td>{{event.eventType| titlecase}}</td>
+            </tr>
+            <tr>
+              <td>when: </td>
+              <td>{{event.whenEvent| date: 'dd/MMM/yyyy h:mm a'}}</td>
+            </tr>
+            <tr>
+              <td>duration (minutes): </td>
+              <td>{{event.duration}}</td>
+            </tr>
+            <tr>
+              <td>where: </td>
+              <td>{{event.whereEvent}}</td>
+            </tr>
+            <tr>
+              <td>contact: </td>
+              <td>{{event.contactPerson}}</td>
+            </tr>
+            <tr>
+              <td>description: </td>
+              <td>{{event.description}}</td>
+            </tr>
+            
+          </tbody>
+        </table>
+  
+  
+  
+    <!-- <button [disabled]="clicked" (click)="deleteEvent(event.id); clicked = true;" class="btn btn-danger">Delete</button> -->
+    <button class="btn btn-success" (click)="eventList()">Back to List</button>
+  </div>
+  </div>
+  <br/>
+  <br/>

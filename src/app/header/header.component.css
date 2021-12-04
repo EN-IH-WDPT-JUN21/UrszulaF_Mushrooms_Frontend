@@ -1,11 +1,12 @@
 nav {
     width: 100%;
     margin-bottom: 0;
+    position: fixed; 
   }
   
   .menu {
     padding: 8px;
-    background-color: blueviolet;
+    background-color: darkgreen;
     margin-bottom: 0;
   }
 
@@ -29,11 +30,11 @@ nav {
   }
   
   .menu-item:hover {
-    background-color:darkblue;
+    background-color:forestgreen;
   }
   
   .active {
-    background-color:darkblue;
+    background-color:forestgreen;
   }
 
   .example-spacer {

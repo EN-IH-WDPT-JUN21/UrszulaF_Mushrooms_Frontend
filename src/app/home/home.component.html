@@ -1,2 +1,20 @@
-<h1>This is the home component</h1>
-<h2>Hello {{getData()}}! </h2>
+
+<div class="bg">
+    <br/>
+    <br/>
+    <div class="container">
+        <h1>Welcome page</h1>
+        <p>Hello {{getData()}}!</p>   
+        <p>This is page for mushroom lovers. You are welcome if you follow real mushroom lovers rules.</p>    
+        <br/>
+        <p>What would you like to do today?</p>   
+        <button class="btn btn-success" (click)="sendToLogin()">Login</button>
+        <br/>
+        <button class="btn btn-warning" (click)="sendToRegister()">Register</button>
+        <br/>
+        <button class="btn btn-success" (click)="sendToMushrooms()">See mushrooms</button>
+    </div>
+    
+</div>
+<br/>
+<br/>

@@ -1,0 +1,15 @@
+.error-msg {
+    color: red;
+    font-size: 0.8rem;
+  }
+
+  .example-section {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    height: 60px;
+  }
+
+  .example-margin {
+    margin: 0 12px;
+  }

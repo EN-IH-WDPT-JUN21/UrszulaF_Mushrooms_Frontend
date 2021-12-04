@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +10,9 @@ export class HomeComponent implements OnInit {
 
   username!: string | null;
 
-  constructor() { }
+  constructor(private activatedRoute: ActivatedRoute,
+    private router: Router) { 
+  }
 
   ngOnInit(): void {
   }
@@ -21,6 +24,20 @@ export class HomeComponent implements OnInit {
     return 'Anonymous'
     
  }
+
+ sendToLogin(): void {
+  this.router.navigate(['/login']);
+}
+
+
+ sendToRegister(): void {
+  this.router.navigate(['/register']);
+}
+
+sendToMushrooms(): void {
+  this.router.navigate(['/mushroom-list']);
+}
+
 
 
 }
