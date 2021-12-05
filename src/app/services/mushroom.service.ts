@@ -16,6 +16,10 @@ export class MushroomService {
     return this.http.get(`${this.baseUrl}/${mushroomName}`);
   }
 
+  getMushroomById(id: number): Observable<any> {
+    return this.http.get(`${this.baseUrl}/id/${id}`);
+  }
+
   createMushroom(mushroom: Object): Observable<Object> {
     return this.http.post(`${this.baseUrl}/new`, mushroom);
   }

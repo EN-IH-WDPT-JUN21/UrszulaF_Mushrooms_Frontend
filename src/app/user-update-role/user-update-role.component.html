@@ -1,0 +1,48 @@
+
+
+<div class="bg">
+  <br/>
+  <br/>
+    <div class="container">
+        <h1>{{user.username| titlecase}} details</h1>
+        <a href="#" class="image main" *ngIf="user.avatarURL==null"><img src="assets/images/mushroomface.jfif" alt="" width=100% /></a>
+        <a href="#" class="image main"><img src="assets/images/{{user.avatarURL}}.jpg" alt="" width=100% /></a>
+        <br/>
+        <br/>
+        <p>Warning: There is only USER and PREMIUM role available here. You can't change to ADMIN here!</p>
+              <div class="container">
+                <div class="row">
+                    <div class="col-md-6 offset-md-3">
+                      
+        <form (ngSubmit)="onSubmit()" [formGroup]="userForm">
+
+
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>User Type</mat-label>
+              <mat-select formControlName="role">
+                <mat-option value="" invalid>Select a role</mat-option>
+                <mat-option *ngFor="let role of roles" [value]="role">{{ role | titlecase }}</mat-option>
+              </mat-select>
+              <mat-error *ngIf="role.invalid && (role.touched || role.dirty)">
+                Select a valid type 
+              </mat-error>
+            </mat-form-field>  
+      
+            <br/>
+
+      
+            <br/>
+            <div class="buttons text-center">
+            <button class="btn btn-success" color="primary" type= "submit" [disabled] = "userForm.invalid">Submit</button>
+            <button class="btn btn-warning" (click)="goToProfile()">Cancel</button>
+            </div>
+        </form>
+      
+      </div>
+      </div>
+      </div>
+      </div>
+      </div>
+      <br/>
+      <br/>
+

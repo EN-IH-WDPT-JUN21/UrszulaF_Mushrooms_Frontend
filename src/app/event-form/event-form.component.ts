@@ -74,10 +74,13 @@ export class EventFormComponent implements OnInit {
     .createEvent(this.event).subscribe(data => {
       console.log(data)
       this.event = new EventNew(this.eventName.value, this.eventTypeName.value,this.whenEvent.value, this.duration.value, this.whereEvent.value, this.contactPerson.value, this.description.value);
+      window.location.href="/event-list";
     },
     error => console.log(error));
    }
 
 
-
+   eventList(): void{
+    this.router.navigate(['event-list']);
+  }
 }

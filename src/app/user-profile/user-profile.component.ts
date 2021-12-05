@@ -35,8 +35,29 @@ export class UserProfileComponent implements OnInit {
       }, error => console.log(error));
   }
 
-  updateUser() {
+  updateAll() {
     this.router.navigate(['user-update'])
+  }
+
+
+  updateEmail() {
+    this.router.navigate(['user-update-email'])
+  }
+
+  updatePassword() {
+    this.router.navigate(['user-update-password'])
+  }
+
+  updateBio() {
+    this.router.navigate(['user-update-bio'])
+  }
+
+  updateRole() {
+    this.router.navigate(['user-update-role'])
+  }
+
+  home() {
+    this.router.navigate(['/'])
   }
 
 }

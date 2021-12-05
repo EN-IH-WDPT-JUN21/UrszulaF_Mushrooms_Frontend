@@ -1,8 +1,10 @@
 import { UserItem } from './../models/user-item.model';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { UserService } from '../services/user.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { User } from '../models/user';
+import { CustomValidator } from '../validators/custom.validator';
 
 @Component({
   selector: 'app-user-update',
@@ -11,11 +13,17 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class UserUpdateComponent implements OnInit {
 
+  user: User;
   username!: string | any;
-  user: UserItem;
 
-  @ViewChild('form')
-  form!: NgForm;
+  roles: string[];
+
+  userForm: FormGroup;
+  email: FormControl;
+  password: FormControl;
+  passwordConfirmation: FormControl;
+  bio: FormControl;
+  role: FormControl;
 
   submitted = false;
 
@@ -24,12 +32,28 @@ export class UserUpdateComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private router: Router
   ) {
+    this.roles=['USER','PREMIUM'];
+    this.email = new FormControl('', [Validators.required, Validators.email]);
+    this.password = new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(20)]);
+    this.passwordConfirmation = new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(20)]);
+    this.bio = new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(200)]);
+    this.role = new FormControl('', [Validators.required]);
+
+    this.userForm = new FormGroup({
+      email: this.email,
+      password: this.password,
+      passwordConfirmation: this.passwordConfirmation,
+      bio: this.bio,
+      role: this.role,
+    }, [CustomValidator.checkPassword])
+
+
     this.username="";
-    this.user= new UserItem(0,"","","", "", "","");
+    this.user= new User();
   }
 
   ngOnInit(): void {
-
+    this.user= new User();
     this.username = localStorage.getItem("username");
     
     this.userService.getUser(this.username)
@@ -42,17 +66,18 @@ export class UserUpdateComponent implements OnInit {
 
   onSubmit(): void {
     this.submitted = false;
-    console.log(this.form.value);
+     console.log(this.user);
+     console.log(this.userForm.value);
     this.updateUser();
 
   }
 
   updateUser() {
-    this.userService.updateUser(this.username, this.user)
+    this.userService.updateUser(this.username, this.userForm.value)
       .subscribe(data => {
         console.log(data);
-        this.user = new UserItem(this.user.id, this.user.avatarURL, this.user.username, this.user.email, this.user.password, this.user.bio, this.user.role);
-        this.goToProfile();
+        this.user = new User();
+        // this.goToProfile();
       }, error => console.log(error));
   }
 

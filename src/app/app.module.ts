@@ -33,6 +33,11 @@ import { AuthGuard } from './services/auth.guard';
 import { LoginService } from './services/login.service';
 import { AuthInterceptor } from './services/auth.interceptor';
 import { UserUpdateComponent } from './user-update/user-update.component';
+import { UserUpdateEmailComponent } from './user-update-email/user-update-email.component';
+import { UserUpdatePasswordComponent } from './user-update-password/user-update-password.component';
+import { UserUpdateBioComponent } from './user-update-bio/user-update-bio.component';
+import { UserUpdateRoleComponent } from './user-update-role/user-update-role.component';
+import {MatRadioModule} from '@angular/material/radio';
 
 @NgModule({
   declarations: [
@@ -50,7 +55,11 @@ import { UserUpdateComponent } from './user-update/user-update.component';
     EventItemComponent,
     EventFormComponent,
     QuizzFormComponent,
-    UserUpdateComponent
+    UserUpdateComponent,
+    UserUpdateEmailComponent,
+    UserUpdatePasswordComponent,
+    UserUpdateBioComponent,
+    UserUpdateRoleComponent
   ],
   imports: [
     BrowserModule,
@@ -67,8 +76,8 @@ import { UserUpdateComponent } from './user-update/user-update.component';
     MatIconModule,
     MatFormFieldModule,
     MatNativeDateModule,
-    MatToolbarModule
-
+    MatToolbarModule,
+    MatRadioModule
 
   ],
   providers: [LoginService,AuthGuard,[{provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi:true }]],

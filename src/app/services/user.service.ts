@@ -20,12 +20,12 @@ export class UserService {
     return this.http.post(`${this.baseUrl}/new`, user);
   }
 
-  updateUser(id: number, value: any): Observable<Object> {
-    return this.http.put(`${this.baseUrl}/${id}`, value);
+  updateUser(username: string, value: any): Observable<Object> {
+    return this.http.put(`${this.baseUrl}/update/${username}`, value);
   }
 
-  deleteUser(id: number): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
+  deleteUser(username: string): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/delete/${username}`, { responseType: 'text' });
   }
 
   getUsersList(): Observable<any> {

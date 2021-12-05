@@ -1,11 +1,11 @@
 .bg {
 
     /* Full height */
-    height: 100vh;
+    height: 100%;
     width: 100%;
   
     /* Center and scale the image nicely */
-    background-image: url(../../assets/images/forest4.jpg);
+    background-image: url(../../assets/images/forest6D.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -17,7 +17,7 @@
     border: 1px solid #d6d9dc;
     border-radius: 3px;
     padding: 20px;
-    max-width: 600px;
+    max-width: 500px;
     /* height: 100%; */
   }
   
@@ -38,4 +38,8 @@
   
       margin-bottom: 15px;
     
+  }
+
+  .heighttext{
+    height:100px
   }

@@ -7,9 +7,14 @@ import { HomeComponent } from './home/home.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { MushroomItemComponent } from './mushroom-item/mushroom-item.component';
 import { MushroomListComponent } from './mushroom-list/mushroom-list.component';
+import { QuizzFormComponent } from './quizz-form/quizz-form.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
 import { AuthGuard } from './services/auth.guard';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { UserUpdateBioComponent } from './user-update-bio/user-update-bio.component';
+import { UserUpdateEmailComponent } from './user-update-email/user-update-email.component';
+import { UserUpdatePasswordComponent } from './user-update-password/user-update-password.component';
+import { UserUpdateRoleComponent } from './user-update-role/user-update-role.component';
 import { UserUpdateComponent } from './user-update/user-update.component';
 
 const routes: Routes = [  {
@@ -35,6 +40,26 @@ const routes: Routes = [  {
   canActivate: [AuthGuard]
 },
 {
+  path: 'user-update-bio',
+  component: UserUpdateBioComponent,
+  canActivate: [AuthGuard]
+},
+{
+  path: 'user-update-email',
+  component: UserUpdateEmailComponent,
+  canActivate: [AuthGuard]
+},
+{
+  path: 'user-update-password',
+  component: UserUpdatePasswordComponent,
+  canActivate: [AuthGuard]
+},
+{
+  path: 'user-update-role',
+  component: UserUpdateRoleComponent,
+  canActivate: [AuthGuard]
+},
+{
   path: 'mushroom-list',
   component: MushroomListComponent
 },
@@ -54,6 +79,12 @@ const routes: Routes = [  {
 {
   path: 'event-form',
   component: EventFormComponent
+}
+,
+
+{
+  path: 'quizz/:id',
+  component: QuizzFormComponent
 }
 ];
 

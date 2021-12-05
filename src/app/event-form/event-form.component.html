@@ -3,7 +3,9 @@
   <br/>
     <div class="container">
         <h1>New Event Form</h1>
-<div>
+        <div class="container">
+          <div class="row">
+              <div class="col-md-6 offset-md-3">
   <form (ngSubmit)="onSubmit()" [formGroup]="eventForm">
       <mat-form-field class="example-full-width" appearance="fill">
           <mat-label>Event title</mat-label>
@@ -98,13 +100,19 @@
 <br/>
 <mat-form-field class="example-full-width" appearance="fill">
   <mat-label>description</mat-label>
-  <input type="text" matInput formControlName="description" placeholder="description...">
+  <input type="text" matInput formControlName="description" placeholder="description..." class="heighttext">
 </mat-form-field>
 
       <br/>
-      <button mat-stroked-button color="primary" type= "submit" [disabled] = "eventForm.invalid">Submit</button>
-
+      <div class="buttons text-center">
+      <button class="btn btn-success" color="primary" type= "submit" [disabled] = "eventForm.invalid">Submit</button>
+      <button class="btn btn-warning" (click)="eventList()">Back to List</button>
+      </div>
   </form>
+
+</div>
+</div>
+</div>
 </div>
 </div>
 <br/>

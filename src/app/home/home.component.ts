@@ -38,6 +38,8 @@ sendToMushrooms(): void {
   this.router.navigate(['/mushroom-list']);
 }
 
-
+sendToEvents(): void {
+  this.router.navigate(['/event-list']);
+}
 
 }

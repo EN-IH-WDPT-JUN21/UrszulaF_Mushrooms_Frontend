@@ -13,37 +13,44 @@
             <tr>
               <th>title</th>
               <th>description</th>
-  
+              <th>update</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>name:</td>
               <td>{{user.username}}</td>
+              <td>N/A</td>
             </tr>
             <tr>
               <td>email</td>
               <td>{{user.email}}</td>
+              <td><button mat-icon-button aria-label="Example icon button with a vertical three dot icon" (click)="updateEmail()"><mat-icon>more_vert</mat-icon></button></td>
             </tr>
             <tr>
               <td>password: </td>
               <td>********</td>
+              <td><button mat-icon-button aria-label="Example icon button with a vertical three dot icon" (click)="updatePassword()"><mat-icon>more_vert</mat-icon></button></td>
             </tr>
-            <tr>
+            <tr class="heighttext">
               <td>bio: </td>
               <td>{{user.bio}}</td>
+              <td><button mat-icon-button aria-label="Example icon button with a vertical three dot icon" (click)="updateBio()"><mat-icon>more_vert</mat-icon></button></td>
             </tr>
             <tr>
               <td>role: </td>
               <td>{{user.role}}</td>
+              <td><button mat-icon-button aria-label="Example icon button with a vertical three dot icon" (click)="updateRole()"><mat-icon>more_vert</mat-icon></button></td>
             </tr>
           </tbody>
         </table>
   
   
   
+
+    <button mat-icon-button color="green" aria-label="Example icon button with a home icon" (click)="home()"><mat-icon>home</mat-icon></button>
+    <button class="btn btn-warning" (click)="updateAll()">Update All Info</button>
     
-    <button class="btn btn-success" (click)="updateUser()">Update</button>
   </div>
   </div>
   <br/>
