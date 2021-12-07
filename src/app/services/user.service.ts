@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class UserService {
 
-  private baseUrl = 'http://localhost:8300/api/users';
+  private baseUrl = 'http://localhost:8000/api/users-auth';
 
   constructor(private http: HttpClient) { }
 
@@ -29,7 +29,7 @@ export class UserService {
   }
 
   getUsersList(): Observable<any> {
-    return this.http.get(`${this.baseUrl}`);
+    return this.http.get(`${this.baseUrl}/all`);
   }
 
 
