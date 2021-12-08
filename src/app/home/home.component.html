@@ -5,9 +5,21 @@
     <div class="container">
         <h1>Welcome page</h1>
         <p>Hello {{getData()}}!</p>   
-        <p>This is page for mushroom lovers. You are welcome if you follow real mushroom lovers rules.</p>    
+        <p>This is page for mushroom lovers. You are welcome if you follow real mushroom lovers rules:</p> 
+        <ol>
+            <li>Never litter in forests</li>
+            <li>Give some space to other mushroom pickers. There is enough mushrooms for everyone</li>
+            <li>Do not disturb the animals. Do not shout</li>
+            <li>Do not kick or distoy inedible mushrooms. Animlas can eat some of them</li>
+            <li>You can pick mushrooms, berries, but leave other plants. Some are under protection</li>
+            <li>Better not go alone, if you don't know well area. You can get lost easily in the forest</li>
+            <li> Prepare yourself: take basket, knife, telephone, spray against ticks and mosquitoes, proper cloths, hat</li>
+            <li>After mushroom picking check if you didn't have any ticks with you</li>
+            <li>And most important have fun & relax!</li>
+        </ol>   
         <br/>
-        <p>What would you like to do today?</p>   
+        <p>What would you like to do today?</p>  
+        <div class="buttons">
         <button class="btn btn-success" (click)="sendToLogin()">Login?</button>
         <br/>
         <button class="btn btn-warning" (click)="sendToRegister()">Register?</button>
@@ -15,6 +27,7 @@
         <button class="btn btn-success" (click)="sendToMushrooms()">See mushrooms?</button>
         <br/>
         <button class="btn btn-warning" (click)="sendToEvents()">Check events?</button>
+        </div>
     </div>
     
 </div>

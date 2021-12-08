@@ -1,0 +1,26 @@
+<div class="bg">
+    <br/>
+    <br/>
+      <div class="container">
+          <h1>Mushroom Quizz</h1>
+          <a href="#" class="image main"><img src="assets/images/mushroomsM.jpg" alt="" width=100% /></a>
+
+ 
+        <br/>
+        <h4>It the end of the quiz</h4>
+        <p>Your answers:</p>
+        <ul>
+            <li *ngFor="let answer of answers; let i = index" >
+                
+                   {{i+1}} - {{answer.name}}
+             </li>
+        </ul>        
+        <button class="btn btn-success" (click)="again()">Try again?</button>
+        
+
+
+  </div>
+  </div>
+
+  <br/>
+  <br/>

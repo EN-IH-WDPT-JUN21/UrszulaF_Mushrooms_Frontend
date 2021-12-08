@@ -7,6 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { MushroomItemComponent } from './mushroom-item/mushroom-item.component';
 import { MushroomListComponent } from './mushroom-list/mushroom-list.component';
+import { QuizzAnswerComponent } from './quizz-answer/quizz-answer.component';
 import { QuizzFormComponent } from './quizz-form/quizz-form.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
 import { AuthGuard } from './services/auth.guard';
@@ -81,10 +82,13 @@ const routes: Routes = [  {
   component: EventFormComponent
 }
 ,
-
 {
   path: 'quizz/:id',
   component: QuizzFormComponent
+},
+{
+  path: 'answer',
+  component: QuizzAnswerComponent
 }
 ];
 

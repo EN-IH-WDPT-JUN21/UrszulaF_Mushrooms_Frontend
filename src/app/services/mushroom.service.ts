@@ -9,6 +9,7 @@ export class MushroomService {
 
   private baseUrl = 'http://localhost:8100/api/mushrooms';
 
+
   constructor(private http: HttpClient) { }
 
 
@@ -39,6 +40,7 @@ export class MushroomService {
   searchMushrooms(mushroomName: string): Observable<any> {
     return this.http.get(`${this.baseUrl}/containing/${mushroomName}`);
   }
+
 
   // searchAnimals(startAge: number, endAge: number, type:string): Observable<any> {
   //   let httpParams = new HttpParams();
