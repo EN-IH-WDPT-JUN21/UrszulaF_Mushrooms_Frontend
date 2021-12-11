@@ -39,6 +39,8 @@ import { UserUpdateBioComponent } from './user-update-bio/user-update-bio.compon
 import { UserUpdateRoleComponent } from './user-update-role/user-update-role.component';
 import {MatRadioModule} from '@angular/material/radio';
 import { QuizzAnswerComponent } from './quizz-answer/quizz-answer.component';
+import { ContactComponent } from './contact/contact.component';
+import { QuizzCheckComponent } from './quizz-check/quizz-check.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +63,9 @@ import { QuizzAnswerComponent } from './quizz-answer/quizz-answer.component';
     UserUpdatePasswordComponent,
     UserUpdateBioComponent,
     UserUpdateRoleComponent,
-    QuizzAnswerComponent
+    QuizzAnswerComponent,
+    ContactComponent,
+    QuizzCheckComponent
   ],
   imports: [
     BrowserModule,

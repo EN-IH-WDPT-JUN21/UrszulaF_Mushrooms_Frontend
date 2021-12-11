@@ -77,7 +77,7 @@ export class UserUpdateComponent implements OnInit {
       .subscribe(data => {
         console.log(data);
         this.user = new User();
-        // this.goToProfile();
+        this.goToProfile();
       }, error => console.log(error));
   }
 

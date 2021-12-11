@@ -1,15 +1,47 @@
-h1{
-    background-color: darkgreen;
-    color: whitesmoke;
-    padding-left: 10px;
-}
-
-.footer {
-    font-size: 1.5em;
-    padding: 8px;
+nav {
+    width: 100%;
+    margin-top: 0;
     position: fixed; 
-    bottom: -10px;
+    bottom: -6px;
     left: 0;
     right: 0;
+  }
+  
+  
 
+
+.footer {
+    padding: 8px;
+    background-color: darkgreen;
+    margin-bottom: 0;
+  }
+
+
+  .footer ul {
+    margin-top: 0;
+  }
+  
+  .footer li {
+    display: inline;
+  }
+
+  .footer div {
+    display: inline;
+  }
+  
+  .footer-item {
+    font-size: 1.5em;
+    color: white;
+    padding: 8px;
+    text-decoration: none;
+  }
+  
+  .footer-item:hover {
+    background-color:forestgreen;
+  }
+  
+
+  .example-spacer {
+    flex: 1 1 auto;
+    /* margin-left: 30px; */
 }

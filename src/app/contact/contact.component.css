@@ -1,34 +1,30 @@
 
 .bg {
-
-    background-image: url(../../assets/images/forest3D.jpg);
+    /* The image used */
+    background-image: url(../../assets/images/forest5D.jpg);
   
-    
+    /* Full height */
     height: 100vh;
     width: 100%;
   
-    
+    /* Center and scale the image nicely */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
-    justify-content: center;
-    align-items: center;
+  justify-content: center;
+  align-items: center;
   
   }
-
-  
-
-  
   .container{
   
     background-color: #F6F7F8;
     border: 1px solid #D6D9DC;
     border-radius: 3px;
- 
+
     padding: 20px;
     
-    max-width: 700px;
+    max-width: 500px;
 
     /* height: 100%; */
  

@@ -8,11 +8,12 @@
  
         <br/>
         <h4>It the end of the quiz</h4>
+        <p>Your score: {{scores}}</p>
         <p>Your answers:</p>
         <ul>
             <li *ngFor="let answer of answers; let i = index" >
                 
-                   {{i+1}} - {{answer.name}}
+                   {{answer}}
              </li>
         </ul>        
         <button class="btn btn-success" (click)="again()">Try again?</button>

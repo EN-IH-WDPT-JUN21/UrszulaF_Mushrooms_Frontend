@@ -12,19 +12,26 @@ import { MushroomService } from '../services/mushroom.service';
 export class QuizzAnswerComponent implements OnInit {
 
 
-  answers: Array<Answer> = [];
+  answers: string[];
+  scores:number;
 
-  constructor(private route: ActivatedRoute,    private quizzService: QuizzService, private router: Router) { }
+  constructor(private route: ActivatedRoute,    private quizzService: QuizzService, private router: Router) { 
+    this.answers=[];
+    this.scores=0;
+  }
 
   ngOnInit(): void {
     this.reloadData();
   }
 
   reloadData() {
-    this.quizzService.getAnswers();
+    this.answers=this.quizzService.getAnswers();
+    this.scores=this.quizzService.getScores();
   }
 
   again(): void{
+    localStorage.removeItem('answers');
+    localStorage.removeItem('scores');
     this.router.navigate(['quizz/1']);
   }
 

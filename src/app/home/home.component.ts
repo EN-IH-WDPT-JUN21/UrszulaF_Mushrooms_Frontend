@@ -42,4 +42,8 @@ sendToEvents(): void {
   this.router.navigate(['/event-list']);
 }
 
+sendToQuizz(): void {
+  this.router.navigate(['/quizz/1']);
+}
+
 }

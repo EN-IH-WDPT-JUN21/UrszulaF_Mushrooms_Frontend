@@ -1,12 +1,14 @@
-.bg {
+
+
+.bg-image {
 
     /* Full height */
-    height: 100% 100vh;
+    height: 100% ;
     width: 100%;
   
     /* Center and scale the image nicely */
-    background-image: url(../../assets/images/mushrooms4D.jpg);
-    background-position: bottom;
+    /* background-image: url(../../assets/images/mushrooms4D.jpg); */
+    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
   

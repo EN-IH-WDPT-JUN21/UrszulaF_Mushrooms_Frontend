@@ -1,17 +1,16 @@
-import { QuizzService } from './../services/quizz.service';
-import { Mushroom } from './../models/mushroom.model';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { MushroomService } from '../services/mushroom.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Answer } from '../models/answer.model';
+import { Mushroom } from '../models/mushroom.model';
+import { MushroomService } from '../services/mushroom.service';
+import { QuizzService } from '../services/quizz.service';
 
 @Component({
-  selector: 'app-quizz-form',
-  templateUrl: './quizz-form.component.html',
-  styleUrls: ['./quizz-form.component.css']
+  selector: 'app-quizz-check',
+  templateUrl: './quizz-check.component.html',
+  styleUrls: ['./quizz-check.component.css']
 })
-export class QuizzFormComponent implements OnInit {
+export class QuizzCheckComponent implements OnInit {
 
   id: number;
   score=0;
@@ -91,7 +90,6 @@ export class QuizzFormComponent implements OnInit {
       this.quizzService.addAnswer(this.id, this.answer, this.score);
       this.submitted = true;
       this.answerType = true;
-      
     }else{
       this.answer="Question" + this.id + ": Wrong! "+ this.mushroom.mushroomName + " is " + this.mushroom.foodValue;
       // window.alert("Wrong! "+ this.mushroom.mushroomName + " is " + this.mushroom.foodValue);
@@ -118,7 +116,7 @@ export class QuizzFormComponent implements OnInit {
         this.id++;
      
     if(this.id<=this.length){
-      this.router.navigate(['quizz-check/',this.id]);
+      this.router.navigate(['quizz/',this.id]);
       // location.href = 'quizz/'+this.id;
       //  this.router.navigate(['quizz/',this.id]).then(() => {
       //  window.location.reload();

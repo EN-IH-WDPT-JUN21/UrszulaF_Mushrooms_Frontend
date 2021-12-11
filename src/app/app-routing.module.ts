@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ContactComponent } from './contact/contact.component';
 import { EventFormComponent } from './event-form/event-form.component';
 import { EventItemComponent } from './event-item/event-item.component';
 import { EventListComponent } from './event-list/event-list.component';
@@ -8,6 +9,7 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import { MushroomItemComponent } from './mushroom-item/mushroom-item.component';
 import { MushroomListComponent } from './mushroom-list/mushroom-list.component';
 import { QuizzAnswerComponent } from './quizz-answer/quizz-answer.component';
+import { QuizzCheckComponent } from './quizz-check/quizz-check.component';
 import { QuizzFormComponent } from './quizz-form/quizz-form.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
 import { AuthGuard } from './services/auth.guard';
@@ -87,8 +89,16 @@ const routes: Routes = [  {
   component: QuizzFormComponent
 },
 {
+  path: 'quizz-check/:id',
+  component: QuizzCheckComponent
+},
+{
   path: 'answer',
   component: QuizzAnswerComponent
+},
+{
+  path: 'contact',
+  component: ContactComponent
 }
 ];
 
