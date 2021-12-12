@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AnimalItemComponent } from './animal-item/animal-item.component';
+import { AnimalListComponent } from './animal-list/animal-list.component';
 import { ContactComponent } from './contact/contact.component';
 import { EventFormComponent } from './event-form/event-form.component';
 import { EventItemComponent } from './event-item/event-item.component';
@@ -99,7 +101,15 @@ const routes: Routes = [  {
 {
   path: 'contact',
   component: ContactComponent
-}
+},
+{
+  path: 'animal-list',
+  component: AnimalListComponent
+},
+{
+  path: 'animal-details/:id',
+  component: AnimalItemComponent
+},
 ];
 
 @NgModule({

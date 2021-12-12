@@ -1,0 +1,54 @@
+
+
+<div class="bg-image" style="background-image: url('assets/images/{{animal.photoURL}}D.jpg');
+height: 100%; width: 100%">
+  <br/>
+  <br/>
+    <div class="container">
+        <h1>{{animal.animalName| titlecase}} details</h1>
+        <a href="#" class="image main"><img src="assets/images/{{animal.animalName}}M.jpg" alt="" width=100% /></a>
+    <div>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>title</th>
+            <th>description</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>name:</td>
+            <td>{{animal.animalName}}</td>
+          </tr>
+          <tr>
+            <td>other names</td>
+            <td>{{animal.otherNames}}</td>
+          </tr>
+          <tr>
+            <td>type: </td>
+            <td>{{animal.animalType}}</td>
+          </tr>
+          <tr>
+            <td>sizes: </td>
+            <td>{{animal.animalSize}}</td>
+          </tr>
+          <tr>
+            <td>description: </td>
+            <td>{{animal.description}}</td>
+          </tr>
+          <tr>
+            <td>remarks: </td>
+            <td>{{animal.remarks}}</td>
+          </tr>
+                  </tbody>
+      </table>
+
+
+
+  <!-- <button [disabled]="clicked" (click)="deleteAnimal(animal.id); clicked = true;" class="btn btn-danger">Delete</button> -->
+  <button class="btn btn-success" (click)="animalList()">Back to List</button>
+</div>
+</div>
+<br/>
+<br/>

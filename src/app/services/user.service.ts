@@ -32,5 +32,9 @@ export class UserService {
     return this.http.get(`${this.baseUrl}/all`);
   }
 
+  getUsername(username: string): Observable<any> {
+    return this.http.get(`${this.baseUrl}/name/${username}`);
+  }
+
 
 }

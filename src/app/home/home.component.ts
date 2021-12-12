@@ -46,4 +46,7 @@ sendToQuizz(): void {
   this.router.navigate(['/quizz/1']);
 }
 
+sendToAnimals(): void {
+  this.router.navigate(['/animal-list']);
+}
 }

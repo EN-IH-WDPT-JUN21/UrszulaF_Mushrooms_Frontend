@@ -41,6 +41,8 @@ import {MatRadioModule} from '@angular/material/radio';
 import { QuizzAnswerComponent } from './quizz-answer/quizz-answer.component';
 import { ContactComponent } from './contact/contact.component';
 import { QuizzCheckComponent } from './quizz-check/quizz-check.component';
+import { AnimalListComponent } from './animal-list/animal-list.component';
+import { AnimalItemComponent } from './animal-item/animal-item.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +67,9 @@ import { QuizzCheckComponent } from './quizz-check/quizz-check.component';
     UserUpdateRoleComponent,
     QuizzAnswerComponent,
     ContactComponent,
-    QuizzCheckComponent
+    QuizzCheckComponent,
+    AnimalListComponent,
+    AnimalItemComponent
   ],
   imports: [
     BrowserModule,

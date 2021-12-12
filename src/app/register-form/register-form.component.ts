@@ -52,7 +52,7 @@ export class RegisterFormComponent implements OnInit {
 
   checkUserExists(): boolean {
     let exist=false;
-    this.userService.getUser(this.form.value.username)
+    this.userService.getUsername(this.form.value.username)
     .subscribe(data => {
       console.log(data);
       exist=true;
