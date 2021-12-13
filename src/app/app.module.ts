@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
-import { LogoutComponent } from './logout/logout.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
@@ -18,7 +17,6 @@ import { EventFormComponent } from './event-form/event-form.component';
 import { QuizzFormComponent } from './quizz-form/quizz-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { AuthService } from './services/auth.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
@@ -43,13 +41,15 @@ import { ContactComponent } from './contact/contact.component';
 import { QuizzCheckComponent } from './quizz-check/quizz-check.component';
 import { AnimalListComponent } from './animal-list/animal-list.component';
 import { AnimalItemComponent } from './animal-item/animal-item.component';
+import { UserListComponent } from './user-list/user-list.component';
+import { UserUpdateAdminComponent } from './user-update-admin/user-update-admin.component';
+import { EventUpdateComponent } from './event-update/event-update.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginFormComponent,
     RegisterFormComponent,
-    LogoutComponent,
     HeaderComponent,
     FooterComponent,
     HomeComponent,
@@ -69,7 +69,10 @@ import { AnimalItemComponent } from './animal-item/animal-item.component';
     ContactComponent,
     QuizzCheckComponent,
     AnimalListComponent,
-    AnimalItemComponent
+    AnimalItemComponent,
+    UserListComponent,
+    UserUpdateAdminComponent,
+    EventUpdateComponent
   ],
   imports: [
     BrowserModule,

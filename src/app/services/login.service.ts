@@ -38,12 +38,34 @@ export class LoginService {
   logout(){
     localStorage.removeItem('token');
     localStorage.removeItem('username');
+    localStorage.removeItem('role');
     return true;
   }
 
 
   gettoken(){
     return localStorage.getItem("token");
+
+  }
+
+
+  isAdmin(){
+    if (localStorage.getItem('role')=='ADMIN') {
+      return true;
+
+    }else{
+      return false;
+    }
+
+  }
+
+  isPremium(){
+    if (localStorage.getItem('role')=='PREMIUM') {
+      return true;
+
+    }else{
+      return false;
+    }
 
   }
 }

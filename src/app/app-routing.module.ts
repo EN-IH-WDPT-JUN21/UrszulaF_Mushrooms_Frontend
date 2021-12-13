@@ -1,3 +1,4 @@
+import { UserListComponent } from './user-list/user-list.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AnimalItemComponent } from './animal-item/animal-item.component';
@@ -21,6 +22,9 @@ import { UserUpdateEmailComponent } from './user-update-email/user-update-email.
 import { UserUpdatePasswordComponent } from './user-update-password/user-update-password.component';
 import { UserUpdateRoleComponent } from './user-update-role/user-update-role.component';
 import { UserUpdateComponent } from './user-update/user-update.component';
+import { Auth2Guard } from './services/auth2.guard';
+import { UserUpdateAdminComponent } from './user-update-admin/user-update-admin.component';
+import { EventUpdateComponent } from './event-update/event-update.component';
 
 const routes: Routes = [  {
   path: '',
@@ -77,13 +81,18 @@ const routes: Routes = [  {
   component: EventListComponent
 },
 {
-  path: 'event-details/:eventName',
+  path: 'event-details/:id',
   component: EventItemComponent
 }
 ,
 {
   path: 'event-form',
   component: EventFormComponent
+}
+,
+{
+  path: 'event-update/:id',
+  component: EventUpdateComponent
 }
 ,
 {
@@ -110,6 +119,16 @@ const routes: Routes = [  {
   path: 'animal-details/:id',
   component: AnimalItemComponent
 },
+{
+  path: 'user-list',
+  component: UserListComponent,
+  canActivate: [Auth2Guard]
+},
+{
+  path: 'user-update-admin/:username',
+  component: UserUpdateAdminComponent,
+  canActivate: [Auth2Guard]
+}
 ];
 
 @NgModule({

@@ -32,7 +32,12 @@ export class UserProfileComponent implements OnInit {
       .subscribe(data => {
         console.log(data)
         this.user = data;
+        localStorage.setItem(
+          'role',
+          (this.user.role)
+        );
       }, error => console.log(error));
+      
   }
 
   updateAll() {

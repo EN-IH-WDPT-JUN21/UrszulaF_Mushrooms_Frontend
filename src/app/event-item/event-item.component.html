@@ -52,7 +52,9 @@
   
     <!-- <button [disabled]="clicked" (click)="deleteEvent(event.id); clicked = true;" class="btn btn-danger">Delete</button> -->
     <button class="btn btn-success" (click)="eventList()">Back to List</button>
+      <button *ngIf="isAdmin || isPremium" (click)="updateEvent(event.id)" class="btn btn-warning" style="margin-left: 10px">Update</button>
+      <button *ngIf="isAdmin" (click)="deleteEvent(event.id)" class="btn btn-danger">Delete</button>
+      <p>{{txt}}</p>
   </div>
   </div>
-  <br/>
-  <br/>
+</div>

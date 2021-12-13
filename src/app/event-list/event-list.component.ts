@@ -42,26 +42,12 @@ export class EventListComponent implements OnInit {
 
   onSelect(event: EventItem):void{
     this.selectedEvent=event;
-    this.eventDetails(this.selectedEvent.eventName)
+    this.eventDetails(this.selectedEvent.id)
     }
 
 
-
-
-  deleteEvent(id: number) {
-    this.eventService.deleteEvent(id)
-      .subscribe(
-        data => {
-          console.log(data);
-          this.reloadData();
-          location.reload();
-        },
-        error => console.log(error));
-
-  }
-
-  eventDetails(eventName: string){
-    this.router.navigate(['event-details', eventName]);
+  eventDetails(id: number){
+    this.router.navigate(['event-details', id]);
   }
 
   onSubmit(): void {

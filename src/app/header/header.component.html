@@ -19,6 +19,10 @@
     <li><a class="menu-item" routerLink="/event-list" routerLinkActive="active">Events</a></li>
     <li><a class="menu-item" routerLink="/quizz/1" routerLinkActive="active">Quizz</a></li>
     <li><a class="menu-item" routerLink="/animal-list" routerLinkActive="active">Animals</a></li>
+    <div *ngIf="loggedIn && isAdmin">
+  
+      <li><a class="menu-item" routerLink="/user-list" routerLinkActive="active">User list</a></li>
+    </div>
     </ul>
 </nav>
 

@@ -16,13 +16,17 @@ export class EventService {
     return this.http.get(`${this.baseUrl}/${eventName}`);
   }
 
+  getEventById(id: number): Observable<any> {
+    return this.http.get(`${this.baseUrl}/id/${id}`);
+  }
+
   createEvent(event: Object): Observable<Object> {
     console.log('testpayload', event);
     return this.http.post(`${this.baseUrl}/new`, event);
   }
 
-  updateEvent(eventName: string, value: any): Observable<Object> {
-    return this.http.put(`${this.baseUrl}/update/${eventName}`, value);
+  updateEvent(id: number, value: any): Observable<Object> {
+    return this.http.put(`${this.baseUrl}/update/${id}`, value);
   }
 
   deleteEvent(id: number): Observable<any> {

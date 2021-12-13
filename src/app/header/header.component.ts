@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../services/auth.service';
+import { ActivatedRoute, Router } from '@angular/router';
 import { LoginService } from '../services/login.service';
 
 @Component({
@@ -10,17 +10,25 @@ import { LoginService } from '../services/login.service';
 export class HeaderComponent implements OnInit {
 
   public loggedIn=false;
+  public isAdmin=false;
 
-
-  constructor(private loginService:LoginService) { }
+  constructor(private loginService:LoginService,
+    private activatedRoute: ActivatedRoute,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.loggedIn = this.loginService.isLoggedIn();
+    this.isAdmin = this.loginService.isAdmin();
   }
 
   logoutUser(){
     this.loginService.logout();
     location.reload();
+    this.goToLogin();
+  }
+
+  goToLogin(): void {
+    this.router.navigate(['/login']);
   }
 
 }
