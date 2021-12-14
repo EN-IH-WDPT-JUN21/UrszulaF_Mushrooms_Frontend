@@ -50,6 +50,8 @@ export class UserUpdateBioComponent implements OnInit {
       .subscribe(data => {
         console.log(data)
         this.user = data;
+        this.userForm.patchValue({bio: this.user.bio
+        });
       }, error => console.log(error));
   }
 

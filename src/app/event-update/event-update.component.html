@@ -2,14 +2,14 @@
     <br/>
     <br/>
       <div class="container">
-          <h1>New Event Form</h1>
+          <h1>Update Event Form</h1>
           <div class="container">
             <div class="row">
                 <div class="col-md-6 offset-md-3">
     <form (ngSubmit)="onSubmit()" [formGroup]="eventForm">
         <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Event title</mat-label>
-            <input type="text" matInput formControlName="eventName" placeholder="{{event.eventName1}}">
+            <input type="text" matInput formControlName="eventName" placeholder="{{selectedEvent.eventName}}">
             <mat-error *ngIf="eventName.hasError('invalidName')">
                 Please enter an event title
             </mat-error> 
@@ -106,7 +106,7 @@
         <br/>
         <div class="buttons text-center">
         <button class="btn btn-success" color="primary" type= "submit" [disabled] = "eventForm.invalid">Submit</button>
-        <button class="btn btn-warning" (click)="eventList()">Back to List</button>
+        <button class="btn btn-warning" (click)="eventDetails(id)">Cancel</button>
         </div>
     </form>
   

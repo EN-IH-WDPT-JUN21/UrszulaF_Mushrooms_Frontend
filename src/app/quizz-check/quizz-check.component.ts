@@ -44,7 +44,7 @@ export class QuizzCheckComponent implements OnInit {
     this.length=100;
     this.answer="";
     this.mushroomName="";
-    this.mushroom= new Mushroom(0,"","","", false, "", "","","","","","","","","","","","","");
+    this.mushroom= new Mushroom(0,"","","", false, "", "","","","","","","","","","","","","","");
     this.mushrooms = new Array();
   }
 

@@ -21,8 +21,8 @@ export class MushroomListComponent implements OnInit {
     private router: Router) {
       this.id=0;
       this.mushroomName="";
-      this.mushroom= new Mushroom(0,"","","", false, "", "","","","","","","","","","","","","");
-      this.selectedMushroom= new Mushroom(0,"","","", false, "", "","","","","","","","","","","","","");
+      this.mushroom= new Mushroom(0,"","","", false, "", "","","","","","","","","","","","","","");
+      this.selectedMushroom= new Mushroom(0,"","","", false, "", "","","","","","","","","","","","","","");
       this.mushrooms = new Array();
     }
 
@@ -75,6 +75,10 @@ export class MushroomListComponent implements OnInit {
       console.log(error);
       window.alert("No such mushroom.Try again!")
     });
+  }
+
+  mushroomAdd(){
+    this.router.navigate(['mushroom-form']);
   }
 
 }

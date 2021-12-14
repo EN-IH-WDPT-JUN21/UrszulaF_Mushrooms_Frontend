@@ -48,6 +48,8 @@ export class UserUpdateEmailComponent implements OnInit {
       .subscribe(data => {
         console.log(data)
         this.user = data;
+        this.userForm.patchValue({email: this.user.email
+        });
       }, error => console.log(error));
   }
 

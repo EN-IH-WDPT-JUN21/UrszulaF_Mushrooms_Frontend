@@ -25,6 +25,7 @@ import { UserUpdateComponent } from './user-update/user-update.component';
 import { Auth2Guard } from './services/auth2.guard';
 import { UserUpdateAdminComponent } from './user-update-admin/user-update-admin.component';
 import { EventUpdateComponent } from './event-update/event-update.component';
+import { MushroomFormComponent } from './mushroom-form/mushroom-form.component';
 
 const routes: Routes = [  {
   path: '',
@@ -75,6 +76,10 @@ const routes: Routes = [  {
 {
   path: 'mushroom-details/:mushroomName',
   component: MushroomItemComponent
+},
+{
+  path: 'mushroom-form',
+  component: MushroomFormComponent
 },
 {
   path: 'event-list',

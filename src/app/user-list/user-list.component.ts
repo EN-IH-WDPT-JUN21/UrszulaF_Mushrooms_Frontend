@@ -66,20 +66,20 @@ if (confirm("Are you sure you want to delete this user?") == true) {
     this.router.navigate(['user-update-admin', username]);
   }
 
-  // onSubmit(): void {
+  onSubmit(): void {
 
-  //   this.searchUsers();
+    this.searchUsers();
 
-  // }
+  }
 
-  // searchUsers() {
-  //   this.userService.searchUsers(this.userName).subscribe(apiResponse => {
-  //     this.users = apiResponse;
-  //   },
-  //   error => {
-  //     console.log(error);
-  //     window.alert("No such user.Try again!")
-  //   });
-  // }
+  searchUsers() {
+    this.userService.searchUsers(this.userName).subscribe(apiResponse => {
+      this.users = apiResponse;
+    },
+    error => {
+      console.log(error);
+      window.alert("No such user.Try again!")
+    });
+  }
 
 }

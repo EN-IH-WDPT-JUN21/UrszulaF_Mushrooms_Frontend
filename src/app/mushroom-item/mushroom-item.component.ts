@@ -21,7 +21,7 @@ export class MushroomItemComponent implements OnInit {
   constructor(private route: ActivatedRoute,    private mushroomService: MushroomService, private router: Router) { 
     this.id=0;
     this.mushroomName="";
-    this.mushroom= new Mushroom(0,"","","", false, "", "","","","","","","","","","","","","")
+    this.mushroom= new Mushroom(0,"","","", false, "", "","","","","","","","","","","","","","")
     }
 
   ngOnInit(): void {

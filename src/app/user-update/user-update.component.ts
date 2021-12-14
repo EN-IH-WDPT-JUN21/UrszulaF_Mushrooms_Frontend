@@ -60,6 +60,10 @@ export class UserUpdateComponent implements OnInit {
       .subscribe(data => {
         console.log(data)
         this.user = data;
+        this.userForm.patchValue({email: this.user.email,
+          bio: this.user.bio,
+          role: this.user.role
+        });
       }, error => console.log(error));
   }
 

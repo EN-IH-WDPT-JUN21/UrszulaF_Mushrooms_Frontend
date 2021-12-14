@@ -1,4 +1,10 @@
 export class Mushroom {
+    public get consumable(): string {
+        return this._consumable;
+    }
+    public set consumable(value: string) {
+        this._consumable = value;
+    }
     public get foodValue(): string {
         return this._foodValue;
     }
@@ -120,6 +126,7 @@ export class Mushroom {
         private _mushroomName: string,
         private _otherNames: string,
         private _edible: boolean,
+        private _consumable: string,
         private _whenFruiting: string,
         private _whereFruiting: string,
         private _hat: string,

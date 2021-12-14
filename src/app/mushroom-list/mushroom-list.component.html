@@ -13,8 +13,10 @@
           <input ngModel required mushroomName minlength="2" pattern="^[a-zA-Z0-9_]+$" [(ngModel)]="mushroomName" name="mushroomName" type="text" placeholder="mushroom name..." #mushroomNameInput="ngModel">
           <button type="submit" class="btn btn-success">Search</button>
           <p class="error-msg" *ngIf="mushroomNameInput.invalid && mushroomNameInput.touched">Please type at least 2 characters of the name only letters, numbers or underscore</p>
+      <button class="btn btn-warning" (click)="mushroomAdd()">Add mushroom</button>   
+      </div> 
 
-      </div>    
+
   </form>
     <div class="panel-body">
       <table class="table table-striped">

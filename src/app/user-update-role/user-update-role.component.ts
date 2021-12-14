@@ -47,6 +47,8 @@ export class UserUpdateRoleComponent implements OnInit {
       .subscribe(data => {
         console.log(data)
         this.user = data;
+        this.userForm.patchValue({role: this.user.role
+        });
       }, error => console.log(error));
   }
 

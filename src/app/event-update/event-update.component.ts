@@ -1,3 +1,4 @@
+import { EventItem } from './../models/event-item.model';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -14,6 +15,7 @@ import { CustomValidator } from '../validators/custom.validator';
 export class EventUpdateComponent implements OnInit {
 
   event: EventNew;
+  selectedEvent: EventItem;
   id: number;
   eventName0="";
 
@@ -52,6 +54,7 @@ export class EventUpdateComponent implements OnInit {
     })
 
     this.event= new EventNew("","",new Date(),0, "", "","");
+    this.selectedEvent= new EventItem(0,"","",new Date(),0, "", "","");
     this.id=0;
   }
 
@@ -60,9 +63,18 @@ export class EventUpdateComponent implements OnInit {
     this.eventService.getEventById(this.id)
       .subscribe(data => {
         console.log(data)
-        this.event = data;
+        this.selectedEvent = data;
+        this.eventForm.patchValue({eventName: this.selectedEvent.eventName,
+          eventTypeName: this.selectedEvent.eventType,
+          whenEvent: this.selectedEvent.whenEvent,
+          duration: this.selectedEvent.duration,
+          whereEvent: this.selectedEvent.whereEvent,
+          contactPerson: this.selectedEvent.contactPerson,
+          description: this.selectedEvent.description
+        });
       }, error => console.log(error));
-      this.eventName0=this.event.eventName1;
+      // this.eventForm.get('eventName').setValue(this.selectedEvent.eventName);
+      // this.eventForm.patchValue({eventName: this.selectedEvent.eventName});
   }
 
 
@@ -93,13 +105,13 @@ export class EventUpdateComponent implements OnInit {
       .subscribe(data => {
         console.log(data);
         this.event = new EventNew(this.eventName.value, this.eventTypeName.value,this.whenEvent.value, this.duration.value, this.whereEvent.value, this.contactPerson.value, this.description.value);
-        this.eventList();
+        this.eventDetails(this.id);
       }, error => console.log(error));
   }
 
 
-   eventList(): void{
-    this.router.navigate(['event-list']);
+  eventDetails(id: number){
+    this.router.navigate(['event-details', id]);
   }
 
 }
