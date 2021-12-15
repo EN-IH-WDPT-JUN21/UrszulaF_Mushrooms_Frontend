@@ -3,7 +3,7 @@
     <br/>
       <div class="container">
       <div class="panel-heading">
-        <h1>Animals in polish forests</h1>
+        <h1>{{'ANIMAL-LIST.Title' | translate}}</h1>
       </div>
       <form class ="form" (ngSubmit)="onSubmit()" #form="ngForm">
       
@@ -30,8 +30,8 @@
           <tbody>
             <tr *ngFor="let animal of animals; let i = index" (click)="onSelect(animal)">
               <td>{{animal.id}}</td>
-              <td>{{animal.animalName}}</td>
-              <td>{{animal.otherNames}}</td>
+              <td>{{animal.animalName | replace : '-' : ' '}}</td>
+              <td>{{animal.otherNames | replace : '/' : ', '}}</td>
               <td>{{animal.animalType}}</td>
             </tr>
           </tbody>

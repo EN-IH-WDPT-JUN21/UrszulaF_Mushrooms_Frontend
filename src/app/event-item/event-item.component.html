@@ -4,7 +4,7 @@
     <br/>
     <br/>
       <div class="container">
-          <h1>{{event.eventName| titlecase}} details</h1>
+          <h1>{{event.eventName | replace : '-' : ' '| titlecase}}  - {{'DETAILS.Title' | translate}}</h1>
           
       <div>
         <table class="table table-striped">
@@ -18,11 +18,11 @@
           <tbody>
             <tr>
               <td>name:</td>
-              <td>{{event.eventName}}</td>
+              <td>{{event.eventName| replace : '-' : ' '| titlecase}}</td>
             </tr>
             <tr>
               <td>type</td>
-              <td>{{event.eventType| titlecase}}</td>
+              <td>{{event.eventType| replace : '_' : ' '| titlecase}}</td>
             </tr>
             <tr>
               <td>when: </td>
@@ -30,7 +30,7 @@
             </tr>
             <tr>
               <td>duration (minutes): </td>
-              <td>{{event.duration}}</td>
+              <td>{{event.duration}} min</td>
             </tr>
             <tr>
               <td>where: </td>

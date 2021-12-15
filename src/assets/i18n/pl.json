@@ -1,0 +1,85 @@
+{
+    "HEADER":{
+        "Home":"Start",
+        "Login": "Logowanie",
+        "Register": "Rejestracja",
+        "Logout": "Wylogowanie",
+        "User profile": "Profil",
+        "Mushrooms": "Grzyby",
+        "Events": "Wydarzenia",
+        "Quiz": "Quiz",
+        "Animals": "Zwierzęta",
+        "User list": "Lista użytkowników",
+        "Select": "Wybierz język"
+    },
+    "HOME":{
+        "Title": "Strona startowa",
+        "Hello": "Cześć",
+        "Intro": "To jest strona dla miłośników grzybów. Dołącz do nas, jeśli przestrzegasz dekalog prawdziwych miłośników grzybów:"
+    },
+    "LOGIN":{
+        "Title": "Strona logowania"
+
+    },
+    "FOOTER":{
+        "Title": "Kontakt"
+
+    },
+    "REGISTER":{
+        "Title": "Rejestracja"
+
+    },
+    "MUSHROOM-LIST":{
+        "Title": "Top lista grzybów w Polsce"
+
+    },
+    "DETAILS":{
+        "Title": "dane"
+
+    },
+    "UPDATE":{
+        "Title": "zmiana danych"
+
+    },
+    "MUSHROOM-FORM":{
+        "Title": "Nowy grzyb"
+
+    },
+    "EVENT-LIST":{
+        "Title": "Lista wydarzeń"
+
+    },
+    "EVENT-FORM":{
+        "Title": "Nowe wydarzenie"
+
+    },
+    "QUIZ-FORM":{
+        "Title": "Quiz o grzybach"
+
+    },
+    "ANIMAL-LIST":{
+        "Title": "Zwierząta w polskich lasach"
+
+    },
+    "ANIMAL-FORM":{
+        "Title": "Nowe zwierzę"
+
+    },
+    "USER-LIST":{
+        "Title": "Lista użytkowników"
+
+    },
+    "CONTACT":{
+        "Title": "Dane kontaktowe",
+        "Hello": "Cześć",
+        "Intro": "Jeśli masz pytanie lub prośbę, możesz do nas zadzwonić lub napisać:",
+        "Name": "Nazwa:",
+        "Phone": "Nr telefonu:",
+        "Cell": "Nr te. komórkowego:",
+        "Email": "e-mail:",
+        "Work hours": "Godziny pracy:",
+        "Address": "Adres:",
+        "End": "Czekamy na kontakt"
+
+    }
+}

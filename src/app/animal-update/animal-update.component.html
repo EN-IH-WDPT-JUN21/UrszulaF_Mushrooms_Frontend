@@ -3,7 +3,7 @@ height: 100%; width: 100%">
     <br/>
     <br/>
       <div class="container">
-          <h1>Update Animal Form</h1>
+          <h1>{{selectedAnimal.animalName| replace : '-' : ' '}} - {{'UPDATE.Title' | translate}}</h1>
           <a href="#" class="image main"><img src="assets/images/{{selectedAnimal.photoURL}}M.jpg" alt="" width=100% /></a>
           <div class="container">
             <div class="row">
@@ -78,6 +78,9 @@ height: 100%; width: 100%">
   <mat-form-field class="example-full-width" appearance="fill">
     <mat-label>remarks</mat-label>
     <input type="text" matInput formControlName="remarks" placeholder="remarks..." class="heighttext">
+    <mat-error *ngIf="remarks.invalid && (remarks.touched || remarks.dirty)">
+      Please enter max 255 letters
+  </mat-error>
   </mat-form-field>
   
         <br/>

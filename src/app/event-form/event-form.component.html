@@ -2,14 +2,14 @@
   <br/>
   <br/>
     <div class="container">
-        <h1>New Event Form</h1>
+        <h1>{{'EVENT-FORM.Title' | translate}}</h1>
         <div class="container">
           <div class="row">
               <div class="col-md-6 offset-md-3">
   <form (ngSubmit)="onSubmit()" [formGroup]="eventForm">
       <mat-form-field class="example-full-width" appearance="fill">
           <mat-label>Event title</mat-label>
-          <input type="text" matInput formControlName="eventName" placeholder="Event name...">
+          <input type="text" matInput formControlName="eventName" placeholder="Event title...">
           <mat-error *ngIf="eventName.hasError('invalidName')">
               Please enter an event title
           </mat-error> 
@@ -23,7 +23,7 @@
         <mat-label>Event Type</mat-label>
         <mat-select formControlName="eventTypeName">
           <mat-option value="" invalid>Select an option</mat-option>
-          <mat-option *ngFor="let eventTypeName of eventTypeNames" [value]="eventTypeName">{{ eventTypeName | titlecase }}</mat-option>
+          <mat-option *ngFor="let eventTypeName of eventTypeNames" [value]="eventTypeName">{{ eventTypeName | replace : '_' : ' '| titlecase}}</mat-option>
         </mat-select>
         <mat-error *ngIf="eventTypeName.invalid && (eventTypeName.touched || eventTypeName.dirty)">
           Select a valid type 
@@ -63,7 +63,7 @@
 
     <br/>
     <mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>duration</mat-label>
+      <mat-label>duration (minutes)</mat-label>
       <input type="number" matInput formControlName="duration" placeholder="Event name...">
       <mat-error *ngIf="duration.hasError('required')">
           Please enter an duration

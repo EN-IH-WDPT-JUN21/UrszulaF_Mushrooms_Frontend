@@ -37,7 +37,7 @@ export class AnimalUpdateComponent implements OnInit {
     this.animalType = new FormControl('', [ Validators.required, Validators.minLength(3), Validators.maxLength(25), ]);
     this.animalSize = new FormControl('', [ Validators.required, Validators.minLength(3), Validators.maxLength(250), ]);
     this.description = new FormControl('', [ Validators.required, Validators.minLength(3), Validators.maxLength(250) ]);
-    this.remarks = new FormControl('', [ Validators.minLength(3), Validators.maxLength(250) ]);
+    this.remarks = new FormControl('', [ Validators.maxLength(255) ]);
     
 
     this.animalForm = new FormGroup({

@@ -1,0 +1,86 @@
+{
+    "HEADER":{
+        "Home":"Home",
+        "Login": "Login",
+        "Register": "Register",
+        "Logout": "Logout",
+        "User profile": "User profile",
+        "Mushrooms": "Mushrooms",
+        "Events": "Events",
+        "Quiz": "Quiz",
+        "Animals": "Animals",
+        "User list": "User list",
+        "Select": "Select Language"
+    },
+    "HOME":{
+        "Title": "Welcome page",
+        "Hello": "Hello",
+        "Intro": "This is page for mushroom lovers. You are welcome if you follow real mushroom lovers decalog:"
+
+    },
+    "LOGIN":{
+        "Title": "Login page"
+
+    },
+    "FOOTER":{
+        "Title": "Contact Us"
+
+    },
+    "REGISTER":{
+        "Title": "Register form"
+
+    },
+    "MUSHROOM-LIST":{
+        "Title": "Top Polish Mushrooms List"
+
+    },
+    "MUSHROOM-FORM":{
+        "Title": "New Mushroom"
+
+    },
+    "DETAILS":{
+        "Title": "details"
+
+    },
+    "UPDATE":{
+        "Title": "change"
+
+    },
+    "EVENT-LIST":{
+        "Title": "Event List"
+
+    },
+    "EVENT-FORM":{
+        "Title": "New Event"
+
+    },
+    "QUIZ-FORM":{
+        "Title": "Mushroom Quiz"
+
+    },
+    "ANIMAL-LIST":{
+        "Title": "Animals in Polish forests"
+
+    },
+    "ANIMAL-FORM":{
+        "Title": "New Animal"
+
+    },
+    "USER-LIST":{
+        "Title": "User List"
+
+    },
+    "CONTACT":{
+        "Title": "Contact details",
+        "Hello": "Hello",
+        "Intro": "If you have a question or request, you can call us or write to us:",
+        "Name": "Name:",
+        "Phone": "Phone no:",
+        "Cell": "Cell phone no:",
+        "Email": "email:",
+        "Work hours": "Work hours:",
+        "Address": "Address:",
+        "End": "Please don't hesitate and contact us"
+
+    }
+}

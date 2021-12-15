@@ -16,7 +16,7 @@ import { EventItemComponent } from './event-item/event-item.component';
 import { EventFormComponent } from './event-form/event-form.component';
 import { QuizzFormComponent } from './quizz-form/quizz-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
@@ -48,6 +48,9 @@ import { MushroomFormComponent } from './mushroom-form/mushroom-form.component';
 import { MushroomUpdateComponent } from './mushroom-update/mushroom-update.component';
 import { AnimalFormComponent } from './animal-form/animal-form.component';
 import { AnimalUpdateComponent } from './animal-update/animal-update.component';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core'; 
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { ReplacePipe } from './pipes/replace.pipe';
 
 @NgModule({
   declarations: [
@@ -80,7 +83,8 @@ import { AnimalUpdateComponent } from './animal-update/animal-update.component';
     MushroomFormComponent,
     MushroomUpdateComponent,
     AnimalFormComponent,
-    AnimalUpdateComponent
+    AnimalUpdateComponent,
+    ReplacePipe
   ],
   imports: [
     BrowserModule,
@@ -98,10 +102,21 @@ import { AnimalUpdateComponent } from './animal-update/animal-update.component';
     MatFormFieldModule,
     MatNativeDateModule,
     MatToolbarModule,
-    MatRadioModule
+    MatRadioModule,
+    TranslateModule.forRoot({
+      loader: {
+          provide: TranslateLoader,
+          useFactory: HttpLoaderFactory,
+          deps: [HttpClient]
+      }
+    })
 
   ],
   providers: [LoginService,AuthGuard,[{provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi:true }]],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}

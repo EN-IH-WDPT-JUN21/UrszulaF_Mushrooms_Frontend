@@ -5,7 +5,7 @@ height: 100%; width: 100%">
   <br/>
   <br/>
     <div class="container">
-        <h1>{{animal.animalName| titlecase}} details</h1>
+        <h1>{{animal.animalName| replace : '-' : ' '}}  - {{'DETAILS.Title' | translate}}</h1>
         <a href="#" class="image main"><img src="assets/images/{{animal.photoURL}}M.jpg" alt="" width=100% /></a>
     <div>
       <table class="table table-striped">
@@ -19,11 +19,11 @@ height: 100%; width: 100%">
         <tbody>
           <tr>
             <td>name:</td>
-            <td>{{animal.animalName}}</td>
+            <td>{{animal.animalName | replace : '-' : ' '}}</td>
           </tr>
           <tr>
             <td>other names</td>
-            <td>{{animal.otherNames}}</td>
+            <td>{{animal.otherNames | replace : '/' : ', '}}</td>
           </tr>
           <tr>
             <td>type: </td>
