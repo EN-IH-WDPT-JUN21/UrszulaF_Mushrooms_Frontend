@@ -6,7 +6,7 @@ height: 100%; width: 100%">
   <br/>
     <div class="container">
         <h1>{{animal.animalName| titlecase}} details</h1>
-        <a href="#" class="image main"><img src="assets/images/{{animal.animalName}}M.jpg" alt="" width=100% /></a>
+        <a href="#" class="image main"><img src="assets/images/{{animal.photoURL}}M.jpg" alt="" width=100% /></a>
     <div>
       <table class="table table-striped">
         <thead>
@@ -48,6 +48,9 @@ height: 100%; width: 100%">
 
   <!-- <button [disabled]="clicked" (click)="deleteAnimal(animal.id); clicked = true;" class="btn btn-danger">Delete</button> -->
   <button class="btn btn-success" (click)="animalList()">Back to List</button>
+  <button *ngIf="isAdmin || isPremium" (click)="updateAnimal(animal.id)" class="btn btn-warning" style="margin-left: 10px">Update</button>
+  <button *ngIf="isAdmin" (click)="deleteAnimal(animal.id)" class="btn btn-danger">Delete</button>
+  <p>{{txt}}</p>
 </div>
 </div>
 <br/>

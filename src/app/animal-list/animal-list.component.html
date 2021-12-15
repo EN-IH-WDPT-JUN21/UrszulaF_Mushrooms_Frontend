@@ -13,6 +13,7 @@
             <input ngModel required animalName minlength="2" pattern="^[a-zA-Z0-9_-]+$" [(ngModel)]="animalName" name="animalName" type="text" placeholder="animal name..." #animalNameInput="ngModel">
             <button type="submit" class="btn btn-success">Search</button>
             <p class="error-msg" *ngIf="animalNameInput.invalid && animalNameInput.touched">Please type at least 2 characters of the name only letters, numbers or underscore</p>
+            <button class="btn btn-warning" (click)="animalAdd()">Add animal</button>  
   
         </div>    
     </form>

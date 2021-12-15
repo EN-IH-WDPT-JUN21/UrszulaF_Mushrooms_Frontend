@@ -39,7 +39,7 @@ export class MushroomListComponent implements OnInit {
 
   onSelect(mushroom: Mushroom):void{
     this.selectedMushroom=mushroom;
-    this.mushroomDetails(this.selectedMushroom.mushroomName)
+    this.mushroomDetails(this.selectedMushroom.id)
     }
 
 
@@ -57,8 +57,8 @@ export class MushroomListComponent implements OnInit {
 
   }
 
-  mushroomDetails(mushroomName: string){
-    this.router.navigate(['mushroom-details', mushroomName]);
+  mushroomDetails(id: number){
+    this.router.navigate(['mushroom-details', id]);
   }
 
   onSubmit(): void {

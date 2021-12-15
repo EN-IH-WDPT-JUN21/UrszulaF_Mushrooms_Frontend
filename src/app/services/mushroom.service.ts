@@ -25,8 +25,8 @@ export class MushroomService {
     return this.http.post(`${this.baseUrl}/new`, mushroom);
   }
 
-  updateMushroom(mushroomName: string, value: any): Observable<Object> {
-    return this.http.put(`${this.baseUrl}/update/${mushroomName}`, value);
+  updateMushroom(id: number, value: any): Observable<Object> {
+    return this.http.put(`${this.baseUrl}/update/${id}`, value);
   }
 
   deleteMushroom(id: number): Observable<any> {

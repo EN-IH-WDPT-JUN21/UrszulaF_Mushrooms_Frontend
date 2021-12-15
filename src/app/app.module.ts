@@ -45,6 +45,9 @@ import { UserListComponent } from './user-list/user-list.component';
 import { UserUpdateAdminComponent } from './user-update-admin/user-update-admin.component';
 import { EventUpdateComponent } from './event-update/event-update.component';
 import { MushroomFormComponent } from './mushroom-form/mushroom-form.component';
+import { MushroomUpdateComponent } from './mushroom-update/mushroom-update.component';
+import { AnimalFormComponent } from './animal-form/animal-form.component';
+import { AnimalUpdateComponent } from './animal-update/animal-update.component';
 
 @NgModule({
   declarations: [
@@ -74,7 +77,10 @@ import { MushroomFormComponent } from './mushroom-form/mushroom-form.component';
     UserListComponent,
     UserUpdateAdminComponent,
     EventUpdateComponent,
-    MushroomFormComponent
+    MushroomFormComponent,
+    MushroomUpdateComponent,
+    AnimalFormComponent,
+    AnimalUpdateComponent
   ],
   imports: [
     BrowserModule,

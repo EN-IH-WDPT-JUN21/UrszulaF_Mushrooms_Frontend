@@ -2,6 +2,7 @@ import { UserItem } from './../models/user-item.model';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../services/user.service';
+import { LoginService } from '../services/login.service';
 
 @Component({
   selector: 'app-user-profile',
@@ -13,12 +14,12 @@ export class UserProfileComponent implements OnInit {
   id: number;
   username!: string | any;
   user: UserItem;
-
+  public isAdmin=false;
 
 
   clicked = false;
 
-  constructor(private route: ActivatedRoute,    private userService: UserService, private router: Router) { 
+  constructor(private route: ActivatedRoute,    private userService: UserService, private router: Router, private loginService:LoginService) { 
     this.id=0;
     this.username="";
     this.user= new UserItem(0,"","","", "", "","")
@@ -36,8 +37,14 @@ export class UserProfileComponent implements OnInit {
           'role',
           (this.user.role)
         );
+        this.isAdmin = this.loginService.isAdmin();
       }, error => console.log(error));
       
+      
+
+      if(this.isAdmin){
+        this.goToAdmin();
+      }
   }
 
   updateAll() {
@@ -63,6 +70,10 @@ export class UserProfileComponent implements OnInit {
 
   home() {
     this.router.navigate(['/'])
+  }
+
+  goToAdmin() {
+    this.router.navigate(['user-list'])
   }
 
 }

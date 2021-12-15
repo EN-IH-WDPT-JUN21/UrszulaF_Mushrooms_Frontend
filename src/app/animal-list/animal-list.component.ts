@@ -78,4 +78,8 @@ export class AnimalListComponent implements OnInit {
     });
   }
 
+  animalAdd(){
+    this.router.navigate(['animal-form']);
+  }
+
 }

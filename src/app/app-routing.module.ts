@@ -26,6 +26,9 @@ import { Auth2Guard } from './services/auth2.guard';
 import { UserUpdateAdminComponent } from './user-update-admin/user-update-admin.component';
 import { EventUpdateComponent } from './event-update/event-update.component';
 import { MushroomFormComponent } from './mushroom-form/mushroom-form.component';
+import { MushroomUpdateComponent } from './mushroom-update/mushroom-update.component';
+import { AnimalUpdateComponent } from './animal-update/animal-update.component';
+import { AnimalFormComponent } from './animal-form/animal-form.component';
 
 const routes: Routes = [  {
   path: '',
@@ -74,12 +77,16 @@ const routes: Routes = [  {
   component: MushroomListComponent
 },
 {
-  path: 'mushroom-details/:mushroomName',
+  path: 'mushroom-details/:id',
   component: MushroomItemComponent
 },
 {
   path: 'mushroom-form',
   component: MushroomFormComponent
+},
+{
+  path: 'mushroom-update/:id',
+  component: MushroomUpdateComponent
 },
 {
   path: 'event-list',
@@ -123,6 +130,14 @@ const routes: Routes = [  {
 {
   path: 'animal-details/:id',
   component: AnimalItemComponent
+},
+{
+  path: 'animal-form',
+  component: AnimalFormComponent
+},
+{
+  path: 'animal-update/:id',
+  component: AnimalUpdateComponent
 },
 {
   path: 'user-list',

@@ -47,7 +47,7 @@ export class EventItemComponent implements OnInit {
 
   deleteEvent(id: number) {
 
-    if (confirm("Are you sure you want to delete this user?") == true) {
+    if (confirm("Are you sure you want to delete this event?") == true) {
       this.txt = "You pressed OK!";
       this.eventService.deleteEvent(id)
       .subscribe(

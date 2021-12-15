@@ -1,12 +1,12 @@
 
 
-<div class="bg-image" style="background-image: url('assets/images/{{mushroom.mushroomName}}D.jpg');
+<div class="bg-image" style="background-image: url('assets/images/{{mushroom.photoURL}}D.jpg');
 height: 100%; width: 100%">
   <br/>
   <br/>
     <div class="container">
         <h1>{{mushroom.mushroomName| titlecase}} details</h1>
-        <a href="#" class="image main"><img src="assets/images/{{mushroom.mushroomName}}M.jpg" alt="" width=100% /></a>
+        <a href="#" class="image main"><img src="assets/images/{{mushroom.photoURL}}M.jpg" alt="" width=100% /></a>
     <div>
       <table class="table table-striped">
         <thead>
@@ -96,6 +96,9 @@ height: 100%; width: 100%">
 
   <!-- <button [disabled]="clicked" (click)="deleteMushroom(mushroom.id); clicked = true;" class="btn btn-danger">Delete</button> -->
   <button class="btn btn-success" (click)="mushroomList()">Back to List</button>
+  <button *ngIf="isAdmin || isPremium" (click)="updateMushroom(mushroom.id)" class="btn btn-warning" style="margin-left: 10px">Update</button>
+  <button *ngIf="isAdmin" (click)="deleteMushroom(mushroom.id)" class="btn btn-danger">Delete</button>
+  <p>{{txt}}</p>
 </div>
 </div>
 <br/>
