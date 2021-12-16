@@ -24,7 +24,7 @@ export class RegisterFormComponent implements OnInit {
     private router: Router
   ) {
     this.user = {
-      avatarURL: '',
+      photoURL: '',
       username: '',
       email: '',
       password: '',

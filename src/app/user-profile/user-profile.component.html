@@ -5,8 +5,11 @@
     <br/>
       <div class="container">
           <h1>{{user.username| titlecase}} - {{'DETAILS.Title' | translate}}</h1>
-          <a href="#" class="image main" *ngIf="user.avatarURL==null"><img src="assets/images/mushroomface.jfif" alt="" width=100% /></a>
-          <a href="#" class="image main"><img src="assets/images/{{user.avatarURL}}.jpg" alt="" width=100% /></a>
+          <a href="#" class="image main" *ngIf="user.photoURL==''"><img src="assets/images/mushroomface.jfif" alt="" width=100% /></a>
+          <!-- <a href="#" class="image main"><img src="assets/images/{{user.photoURL}}.jpg" alt="" width=100% /></a> -->
+          <div *ngIf=retrievedImage>
+            <img [src]="retrievedImage" width=100% >
+        </div>
       <div>
         <table class="table table-striped">
           <thead>
@@ -41,6 +44,11 @@
               <td>role: </td>
               <td>{{user.role}}</td>
               <td><button mat-icon-button aria-label="Example icon button with a vertical three dot icon" (click)="updateRole()"><mat-icon>more_vert</mat-icon></button></td>
+            </tr>
+            <tr>
+              <td>photo: </td>
+              <td>{{user.photoURL}}</td>
+              <td><button mat-icon-button aria-label="Example icon button with a vertical three dot icon" (click)="updatePhoto()"><mat-icon>more_vert</mat-icon></button></td>
             </tr>
           </tbody>
         </table>

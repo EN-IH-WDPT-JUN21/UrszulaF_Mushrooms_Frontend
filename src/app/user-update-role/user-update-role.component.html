@@ -5,8 +5,8 @@
   <br/>
     <div class="container">
         <h1>{{user.username| titlecase}} - {{'UPDATE.Title' | translate}}</h1>
-        <a href="#" class="image main" *ngIf="user.avatarURL==null"><img src="assets/images/mushroomface.jfif" alt="" width=100% /></a>
-        <a href="#" class="image main"><img src="assets/images/{{user.avatarURL}}.jpg" alt="" width=100% /></a>
+        <a href="#" class="image main" *ngIf="user.photoURL==''"><img src="assets/images/mushroomface.jfif" alt="" width=100% /></a>
+        <a href="#" class="image main"><img src="assets/images/{{user.photoURL}}.jpg" alt="" width=100% /></a>
         <br/>
         <br/>
         <p>Warning: There is only USER and PREMIUM role available here. You can't change to ADMIN here!</p>

@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../services/user.service';
 import { LoginService } from '../services/login.service';
+import { PhotoService } from '../services/photo.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-user-profile',
@@ -15,11 +17,13 @@ export class UserProfileComponent implements OnInit {
   username!: string | any;
   user: UserItem;
   public isAdmin=false;
-
+  retrieveResonse: any;
+  retrievedImage: any;
+  base64Data: any;
 
   clicked = false;
 
-  constructor(private route: ActivatedRoute,    private userService: UserService, private router: Router, private loginService:LoginService) { 
+  constructor(private route: ActivatedRoute,    private userService: UserService, private router: Router, private loginService:LoginService, private photoService:PhotoService, private httpClient: HttpClient) { 
     this.id=0;
     this.username="";
     this.user= new UserItem(0,"","","", "", "","")
@@ -38,6 +42,7 @@ export class UserProfileComponent implements OnInit {
           (this.user.role)
         );
         this.isAdmin = this.loginService.isAdmin();
+        this.getImage();
       }, error => console.log(error));
       
       
@@ -45,6 +50,8 @@ export class UserProfileComponent implements OnInit {
       if(this.isAdmin){
         this.goToAdmin();
       }
+
+
   }
 
   updateAll() {
@@ -68,12 +75,28 @@ export class UserProfileComponent implements OnInit {
     this.router.navigate(['user-update-role'])
   }
 
+  updatePhoto() {
+    this.router.navigate(['user-update-photo'])
+  }
+
   home() {
     this.router.navigate(['/'])
   }
 
   goToAdmin() {
     this.router.navigate(['user-list'])
+  }
+
+  getImage() {
+    //Make a call to Sprinf Boot to get the Image Bytes.
+    this.httpClient.get('http://localhost:8300/image/get/' + this.user.photoURL)
+      .subscribe(
+        res => {
+          this.retrieveResonse = res;
+          this.base64Data = this.retrieveResonse.picByte;
+          this.retrievedImage = 'data:image/jpeg;base64,' + this.base64Data;
+        }
+      );
   }
 
 }

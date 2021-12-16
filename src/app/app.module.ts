@@ -51,6 +51,7 @@ import { AnimalUpdateComponent } from './animal-update/animal-update.component';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core'; 
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ReplacePipe } from './pipes/replace.pipe';
+import { UserUpdatePhotoComponent } from './user-update-photo/user-update-photo.component';
 
 @NgModule({
   declarations: [
@@ -84,7 +85,8 @@ import { ReplacePipe } from './pipes/replace.pipe';
     MushroomUpdateComponent,
     AnimalFormComponent,
     AnimalUpdateComponent,
-    ReplacePipe
+    ReplacePipe,
+    UserUpdatePhotoComponent
   ],
   imports: [
     BrowserModule,

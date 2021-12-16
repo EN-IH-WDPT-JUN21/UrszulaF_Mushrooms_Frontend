@@ -1,5 +1,5 @@
 export class User {
-    avatarURL!: string;
+    photoURL!: string;
     username!: string;
     email!: string;
     password!: string;

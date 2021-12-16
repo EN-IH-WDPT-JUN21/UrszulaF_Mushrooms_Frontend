@@ -29,6 +29,7 @@ import { MushroomFormComponent } from './mushroom-form/mushroom-form.component';
 import { MushroomUpdateComponent } from './mushroom-update/mushroom-update.component';
 import { AnimalUpdateComponent } from './animal-update/animal-update.component';
 import { AnimalFormComponent } from './animal-form/animal-form.component';
+import { UserUpdatePhotoComponent } from './user-update-photo/user-update-photo.component';
 
 const routes: Routes = [  {
   path: '',
@@ -148,6 +149,11 @@ const routes: Routes = [  {
   path: 'user-update-admin/:username',
   component: UserUpdateAdminComponent,
   canActivate: [Auth2Guard]
+},
+{
+  path: 'user-update-photo',
+  component: UserUpdatePhotoComponent,
+  canActivate: [AuthGuard]
 }
 ];
 

@@ -29,11 +29,11 @@ export class UserItem {
     public set username(value: string) {
         this._username = value;
     }
-    public get avatarURL(): string {
-        return this._avatarURL;
+    public get photoURL(): string {
+        return this._photoURL;
     }
-    public set avatarURL(value: string) {
-        this._avatarURL = value;
+    public set photoURL(value: string) {
+        this._photoURL = value;
     }
 
     public get id(): number {
@@ -46,7 +46,7 @@ export class UserItem {
 
 
     constructor( private _id: number,
-        private _avatarURL: string,
+        private _photoURL: string,
         private _username: string,
         private _email: string,
         private _password: string,
