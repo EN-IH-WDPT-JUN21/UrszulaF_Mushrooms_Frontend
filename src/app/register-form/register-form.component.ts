@@ -28,7 +28,7 @@ export class RegisterFormComponent implements OnInit {
       username: '',
       email: '',
       password: '',
-      bio:'',
+      bio: '',
       role: ''
     }
   }
@@ -43,27 +43,27 @@ export class RegisterFormComponent implements OnInit {
 
   save() {
     this.userService
-    .createUser(this.user).subscribe(data => {
-      console.log(data)
-      this.user = new User();
-    },
-    error => console.log(error));
+      .createUser(this.user).subscribe(data => {
+        console.log(data)
+        this.user = new User();
+      },
+        error => console.log(error));
   }
 
   checkUserExists(): boolean {
-    let exist=false;
+    let exist = false;
     this.userService.getUsername(this.form.value.username)
-    .subscribe(data => {
-      console.log(data);
-      exist=true;
-      this.submitted = false;
-      window.alert('Username exists. Try register with different username');
-    }, error => {
-      console.log(error);
-      exist=false;
-      this.save();
-      this.submitted = true;
-    });
+      .subscribe(data => {
+        console.log(data);
+        exist = true;
+        this.submitted = false;
+        window.alert('Username exists. Try register with different username');
+      }, error => {
+        console.log(error);
+        exist = false;
+        this.save();
+        this.submitted = true;
+      });
     return exist;
   }
 
@@ -78,8 +78,5 @@ export class RegisterFormComponent implements OnInit {
   goToLogin(): void {
     this.router.navigate(['/login']);
   }
-
-
-
 
 }

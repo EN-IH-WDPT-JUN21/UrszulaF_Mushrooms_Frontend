@@ -115,7 +115,7 @@ export class MushroomNew {
     }
 
 
-    constructor( 
+    constructor(
         private photoURL: string,
         private mushroomName: string,
         private otherNames: string,
@@ -134,6 +134,6 @@ export class MushroomNew {
         private differentiation: string,
         private similar: string,
         private remarks: string,
-        private foodValue: string        
-        ){}
-  }
+        private foodValue: string
+    ) { }
+}

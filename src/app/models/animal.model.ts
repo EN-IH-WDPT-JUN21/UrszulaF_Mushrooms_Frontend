@@ -51,13 +51,13 @@ export class Animal {
     }
 
 
-    constructor( private _id: number,
+    constructor(private _id: number,
         private _photoURL: string,
         private _animalName: string,
         private _otherNames: string,
         private _animalType: string,
         private _animalSize: string,
         private _description: string,
-        private _remarks: string     
-        ){}
-  }
+        private _remarks: string
+    ) { }
+}

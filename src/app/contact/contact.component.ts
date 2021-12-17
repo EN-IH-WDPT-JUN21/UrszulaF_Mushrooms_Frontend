@@ -11,18 +11,18 @@ export class ContactComponent implements OnInit {
   username!: string | null;
 
   constructor(private activatedRoute: ActivatedRoute,
-    private router: Router) { 
+    private router: Router) {
   }
 
   ngOnInit(): void {
   }
 
   getData() {
-    if (localStorage.getItem('username')){
+    if (localStorage.getItem('username')) {
       return localStorage.getItem('username')
     }
     return 'Anonymous'
-    
- }
+
+  }
 
 }

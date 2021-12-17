@@ -1,69 +1,70 @@
 <div class="bg">
-    <br/>
-    <br/>
-      <div class="container">
+    <br />
+    <br />
+    <div class="container">
 
-<div class="container row">
-    <div class="col-md-12">
-        <h1>Upload Image (max 60kb)</h1>
-    </div>
-</div>
-<div class="container row">
-    <h2>1. Select Image</h2>
-    <div class="col-md-6">
-        <input type="file" (change)="onFileChanged($event)">
-    </div>
-    <div class="col-md-6">
-        <input type="button" (click)="onUpload()" value="upload">
-    </div>
-</div>
-<hr />
-<div class="container row">
+        <div class="container row">
+            <div class="col-md-12">
+                <h1>{{'PHOTO.Title' | translate}}</h1>
+            </div>
+        </div>
+        <div class="container row">
+            <h2>{{'PHOTO.1' | translate}}</h2>
+            <div class="col-md-6">
+                <input type="file" (change)="onFileChanged($event)">
+            </div>
+            <div class="col-md-6">
+                <input type="button" (click)="onUpload()" value="upload">
+            </div>
+        </div>
+        <hr />
+        <div class="container row">
 
-    <div class="col-md-12">
-        <div *ngIf=message>{{message}}</div>
-    </div>
-</div>
-<div class="container row">
-    <h2>2. Preview Image</h2>
-    <div class="col-md-6">
-        <input type="text" class="form-control" id="name" placeholder="image name" [(ngModel)]="imageName"
-            name="name" />
-    </div>
-    <div class="col-md-6">
-        <input type="button" (click)="getImage()" value="Get Image">
-    </div>
-</div>
-<div class="container row">
-    <div class="col-md-12">
-        <div *ngIf=retrievedImage>
-            <img [src]="retrievedImage" width=100% >
+            <div class="col-md-12">
+                <div *ngIf=message>{{message}}</div>
+            </div>
+        </div>
+        <div class="container row">
+            <h2>{{'PHOTO.2' | translate}}</h2>
+            <div class="col-md-6">
+                <input type="text" class="form-control" id="name" placeholder="image name" [(ngModel)]="imageName"
+                    name="name" />
+            </div>
+            <div class="col-md-6">
+                <input type="button" (click)="getImage()" value="Get Image">
+            </div>
+        </div>
+        <div class="container row">
+            <div class="col-md-12">
+                <div *ngIf=retrievedImage>
+                    <img [src]="retrievedImage" width=100%>
+                </div>
+            </div>
+        </div>
+        <div class="container row">
+            <h2>{{'PHOTO.3' | translate}}</h2>
+            <form (ngSubmit)="onSubmit()" [formGroup]="userForm">
+
+
+
+
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Add photo</mat-label>
+                    <input type="text" matInput formControlName="photoURL" placeholder="Full photo name...">
+                    <mat-error *ngIf="photoURL.invalid && (photoURL.touched || photoURL.dirty)">
+                        Please enter between 4 and 200 letters
+                    </mat-error>
+                </mat-form-field>
+
+
+
+                <br />
+                <div class="buttons text-center">
+                    <button class="btn btn-success" color="primary" type="submit"
+                        [disabled]="userForm.invalid">Submit</button>
+                    <button class="btn btn-warning" (click)="goToProfile()">Cancel</button>
+                </div>
+            </form>
         </div>
     </div>
-</div>
-<div class="container row">
-<h2>3. Attach Image to Profile</h2>
-<form (ngSubmit)="onSubmit()" [formGroup]="userForm">
-
-
-
-
-    <mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>Add photo</mat-label>
-      <input type="text" matInput formControlName="photoURL" placeholder="Full photo name...">
-      <mat-error *ngIf="photoURL.invalid && (photoURL.touched || photoURL.dirty)">
-        Please enter between 4 and 200 letters
-    </mat-error>
-  </mat-form-field>
-
-
-
-      <br/>
-      <div class="buttons text-center">
-      <button class="btn btn-success" color="primary" type= "submit" [disabled] = "userForm.invalid">Submit</button>
-      <button class="btn btn-warning" (click)="goToProfile()">Cancel</button>
-      </div>
-  </form>
-</div>  
-</div>
 </div>

@@ -14,22 +14,22 @@ export class MushroomItemComponent implements OnInit {
   id: number;
   mushroomName: string;
   mushroom: Mushroom;
-  txt:String="";
-  public isAdmin=false;
-  public isPremium=false;
+  txt: String = "";
+  public isAdmin = false;
+  public isPremium = false;
 
   clicked = false;
 
-  constructor(private route: ActivatedRoute,    private mushroomService: MushroomService, private router: Router, private loginService:LoginService) { 
-    this.id=0;
-    this.mushroomName="";
-    this.mushroom= new Mushroom(0,"","","", false, "", "","","","","","","","","","","","","","")
-    }
+  constructor(private route: ActivatedRoute, private mushroomService: MushroomService, private router: Router, private loginService: LoginService) {
+    this.id = 0;
+    this.mushroomName = "";
+    this.mushroom = new Mushroom(0, "", "", "", false, "", "", "", "", "", "", "", "", "", "", "", "", "", "", "")
+  }
 
   ngOnInit(): void {
 
     this.id = this.route.snapshot.params['id'];
-    
+
     this.mushroomService.getMushroomById(this.id)
       .subscribe(data => {
         console.log(data)
@@ -42,24 +42,24 @@ export class MushroomItemComponent implements OnInit {
   deleteMushroom(id: number) {
     if (confirm("Are you sure you want to delete this mushroom?") == true) {
       this.txt = "You pressed OK!";
-    this.mushroomService.deleteMushroom(id)
-      .subscribe(
-        data => {
-          console.log(data);
-          location.reload();
-        },
-        error => console.log(error));
-        this.mushroomList();
-      } else {
-        this.txt = "You canceled!";
-      }
+      this.mushroomService.deleteMushroom(id)
+        .subscribe(
+          data => {
+            console.log(data);
+            location.reload();
+          },
+          error => console.log(error));
+      this.mushroomList();
+    } else {
+      this.txt = "You canceled!";
+    }
   }
 
-  mushroomList(): void{
+  mushroomList(): void {
     this.router.navigate(['mushroom-list']);
   }
 
-  updateMushroom(id: number){
+  updateMushroom(id: number) {
     this.router.navigate(['mushroom-update', id]);
   }
 

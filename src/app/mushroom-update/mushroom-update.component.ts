@@ -16,7 +16,7 @@ export class MushroomUpdateComponent implements OnInit {
   mushroom: MushroomNew;
   selectedMushroom: Mushroom;
   id: number;
-  mushroomName0="";
+  mushroomName0 = "";
 
   consumables: string[];
 
@@ -41,56 +41,56 @@ export class MushroomUpdateComponent implements OnInit {
   remarks: FormControl;
   foodValue: FormControl;
 
-  constructor(        private mushroomService: MushroomService,
+  constructor(private mushroomService: MushroomService,
     private activatedRoute: ActivatedRoute,
-    private router: Router) { 
+    private router: Router) {
 
-      this.consumables=['GREAT', 'GOOD', 'AVERAGE', 'INEDIBLE', 'POISONOUS', 'DEADLY_POISONOUS'];
-      this.photoURL= new FormControl('');
-      this.mushroomName= new FormControl('',[Validators.required, Validators.minLength(3), Validators.maxLength(25), CustomValidator.nameValidator]);
-      this.otherNames= new FormControl('', [Validators.minLength(3), Validators.maxLength(100)]);
-      this.edibleString=new FormControl('', [ Validators.required]);
-      this.consumable = new FormControl('', [ Validators.required]);
-      this.whenFruiting = new FormControl('', [ Validators.required, Validators.minLength(3), Validators.maxLength(100), ]);
-      this.whereFruiting = new FormControl('', [ Validators.required, Validators.minLength(3), Validators.maxLength(100), ]);
-      this.hat = new FormControl('', [ Validators.required, Validators.minLength(3), Validators.maxLength(100) ]);
-      this.stem = new FormControl('', [ Validators.required, Validators.minLength(3), Validators.maxLength(100) ]);
-      this.ring = new FormControl('', [ Validators.required, Validators.minLength(3), Validators.maxLength(100) ]);
-      this.gills = new FormControl('', [ Validators.required, Validators.minLength(3), Validators.maxLength(100) ]);
-      this.tubes = new FormControl('', [ Validators.required, Validators.minLength(3), Validators.maxLength(100) ]);
-      this.pulp = new FormControl('', [ Validators.required, Validators.minLength(3), Validators.maxLength(100) ]);
-      this.smell = new FormControl('', [ Validators.required, Validators.minLength(3), Validators.maxLength(100) ]);
-      this.taste = new FormControl('', [ Validators.required, Validators.minLength(3), Validators.maxLength(100) ]);
-      this.differentiation = new FormControl('', [ Validators.required, Validators.minLength(3), Validators.maxLength(100) ]);
-      this.similar = new FormControl('', [ Validators.required, Validators.minLength(3), Validators.maxLength(100) ]);
-      this.remarks = new FormControl('', [ Validators.minLength(3), Validators.maxLength(100) ]);
-      this.foodValue = new FormControl('', [ Validators.required, Validators.minLength(3), Validators.maxLength(100) ]);
-  
-      this.mushroomForm = new FormGroup({
-        photoURL:this.photoURL,
-        mushroomName: this.mushroomName,
-        otherNames: this.otherNames,
-        edibleString: this.edibleString,
-        consumable: this.consumable,
-        whenFruiting: this.whenFruiting,
-        whereFruiting: this.whereFruiting,
-        hat: this.hat,
-        stem: this.stem,
-        ring: this.ring,
-        gills: this.gills,
-        tubes: this.tubes,
-        pulp: this.pulp,
-        smell: this.smell,
-        taste: this.taste,
-        differentiation: this.differentiation,
-        similar: this.similar,
-        remarks: this.remarks,
-        foodValue: this.foodValue
-      })
+    this.consumables = ['GREAT', 'GOOD', 'AVERAGE', 'INEDIBLE', 'POISONOUS', 'DEADLY_POISONOUS'];
+    this.photoURL = new FormControl('');
+    this.mushroomName = new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(25), CustomValidator.nameValidator]);
+    this.otherNames = new FormControl('', [Validators.minLength(3), Validators.maxLength(100)]);
+    this.edibleString = new FormControl('', [Validators.required]);
+    this.consumable = new FormControl('', [Validators.required]);
+    this.whenFruiting = new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(100),]);
+    this.whereFruiting = new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(100),]);
+    this.hat = new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(100)]);
+    this.stem = new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(100)]);
+    this.ring = new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(100)]);
+    this.gills = new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(100)]);
+    this.tubes = new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(100)]);
+    this.pulp = new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(100)]);
+    this.smell = new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(100)]);
+    this.taste = new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(100)]);
+    this.differentiation = new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(100)]);
+    this.similar = new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(100)]);
+    this.remarks = new FormControl('', [Validators.minLength(3), Validators.maxLength(100)]);
+    this.foodValue = new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(100)]);
 
-      this.mushroom= new MushroomNew("","","","", "", "","","","","","","","","","","","","","");
-    this.selectedMushroom= new Mushroom(0,"","","",false, "", "","","","","","","","","","","","","","");
-    this.id=0;
+    this.mushroomForm = new FormGroup({
+      photoURL: this.photoURL,
+      mushroomName: this.mushroomName,
+      otherNames: this.otherNames,
+      edibleString: this.edibleString,
+      consumable: this.consumable,
+      whenFruiting: this.whenFruiting,
+      whereFruiting: this.whereFruiting,
+      hat: this.hat,
+      stem: this.stem,
+      ring: this.ring,
+      gills: this.gills,
+      tubes: this.tubes,
+      pulp: this.pulp,
+      smell: this.smell,
+      taste: this.taste,
+      differentiation: this.differentiation,
+      similar: this.similar,
+      remarks: this.remarks,
+      foodValue: this.foodValue
+    })
+
+    this.mushroom = new MushroomNew("", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "");
+    this.selectedMushroom = new Mushroom(0, "", "", "", false, "", "", "", "", "", "", "", "", "", "", "", "", "", "", "");
+    this.id = 0;
   }
 
   ngOnInit(): void {
@@ -100,7 +100,7 @@ export class MushroomUpdateComponent implements OnInit {
         console.log(data)
         this.selectedMushroom = data;
         this.mushroomForm.patchValue({
-          photoURL:this.selectedMushroom.photoURL,
+          photoURL: this.selectedMushroom.photoURL,
           mushroomName: this.selectedMushroom.mushroomName,
           otherNames: this.selectedMushroom.otherNames,
           edibleString: this.selectedMushroom.edible,
@@ -121,22 +121,15 @@ export class MushroomUpdateComponent implements OnInit {
           foodValue: this.selectedMushroom.foodValue
         });
       }, error => console.log(error));
-      // this.mushroomForm.get('mushroomName').setValue(this.selectedMushroom.mushroomName);
-      // this.mushroomForm.patchValue({mushroomName: this.selectedMushroom.mushroomName});
   }
 
 
 
-  onSubmit(): void{
+  onSubmit(): void {
     console.log('Created Mushroom');
     console.log(this.mushroomForm.value);
-
-// const dateISO=new Date();
-
-// const dateISO = moment(this.whenMushroom.value).toISOString().slice(0, -1);
-// console.log(dateISO);
     console.log(this.mushroomName.value);
-    this.mushroom=new MushroomNew(
+    this.mushroom = new MushroomNew(
       this.photoURL.value,
       this.mushroomName.value,
       this.otherNames.value,
@@ -160,13 +153,13 @@ export class MushroomUpdateComponent implements OnInit {
     console.log('testpayload', this.mushroom);
     this.updateMushroom();
 
-   }
+  }
 
-   updateMushroom() {
+  updateMushroom() {
     this.mushroomService.updateMushroom(this.id, this.mushroomForm.value)
       .subscribe(data => {
         console.log(data);
-        this.mushroom=new MushroomNew(
+        this.mushroom = new MushroomNew(
           this.photoURL.value,
           this.mushroomName.value,
           this.otherNames.value,
@@ -192,7 +185,7 @@ export class MushroomUpdateComponent implements OnInit {
   }
 
 
-  mushroomDetails(id: number){
+  mushroomDetails(id: number) {
     this.router.navigate(['mushroom-details', id]);
   }
 

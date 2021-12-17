@@ -81,5 +81,12 @@
         "Address": "Adres:",
         "End": "Czekamy na kontakt"
 
+    },
+    "PHOTO":{
+        "Title": "Dołączanie obrazu (max 60KB)",
+        "1": "1. Wybierz obraz",
+        "2": "2. Podgląd obrazu",
+        "3": "3. Załączenie obrazu do profilu"
+
     }
 }

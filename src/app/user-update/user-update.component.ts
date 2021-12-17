@@ -32,7 +32,7 @@ export class UserUpdateComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private router: Router
   ) {
-    this.roles=['USER','PREMIUM'];
+    this.roles = ['USER', 'PREMIUM'];
     this.email = new FormControl('', [Validators.required, Validators.email]);
     this.password = new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(20)]);
     this.passwordConfirmation = new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(20)]);
@@ -48,19 +48,20 @@ export class UserUpdateComponent implements OnInit {
     }, [CustomValidator.checkPassword])
 
 
-    this.username="";
-    this.user= new User();
+    this.username = "";
+    this.user = new User();
   }
 
   ngOnInit(): void {
-    this.user= new User();
+    this.user = new User();
     this.username = localStorage.getItem("username");
-    
+
     this.userService.getUser(this.username)
       .subscribe(data => {
-        console.log(data)
+        // console.log(data)
         this.user = data;
-        this.userForm.patchValue({email: this.user.email,
+        this.userForm.patchValue({
+          email: this.user.email,
           bio: this.user.bio,
           role: this.user.role
         });
@@ -70,8 +71,8 @@ export class UserUpdateComponent implements OnInit {
 
   onSubmit(): void {
     this.submitted = false;
-     console.log(this.user);
-     console.log(this.userForm.value);
+    // console.log(this.user);
+    console.log(this.userForm.value);
     this.updateUser();
 
   }
@@ -79,7 +80,7 @@ export class UserUpdateComponent implements OnInit {
   updateUser() {
     this.userService.updateUser(this.username, this.userForm.value)
       .subscribe(data => {
-        console.log(data);
+        // console.log(data);
         this.user = new User();
         this.goToProfile();
       }, error => console.log(error));

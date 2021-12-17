@@ -16,7 +16,7 @@ export class UserUpdatePhotoComponent implements OnInit {
   retrievedImage: any;
   base64Data: any;
   retrieveResonse: any;
-  message: string="";
+  message: string = "";
   imageName: any;
 
   user: User;
@@ -32,31 +32,32 @@ export class UserUpdatePhotoComponent implements OnInit {
   constructor(private httpClient: HttpClient,
     private userService: UserService,
     private activatedRoute: ActivatedRoute,
-    private router: Router) { 
+    private router: Router) {
 
-      this.photoURL = new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(20)]);
+    this.photoURL = new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(20)]);
 
 
-      this.userForm = new FormGroup({
-  
-        photoURL: this.photoURL
-  
-      })
-  
-  
-      this.username="";
-      this.user= new User();
-    }
+    this.userForm = new FormGroup({
+
+      photoURL: this.photoURL
+
+    })
+
+
+    this.username = "";
+    this.user = new User();
+  }
 
   ngOnInit(): void {
-    this.user= new User();
+    this.user = new User();
     this.username = localStorage.getItem("username");
-    
+
     this.userService.getUser(this.username)
       .subscribe(data => {
-        console.log(data)
+        // console.log(data)
         this.user = data;
-        this.userForm.patchValue({photoURL: this.user.photoURL
+        this.userForm.patchValue({
+          photoURL: this.user.photoURL
         });
       }, error => console.log(error));
   }
@@ -69,11 +70,11 @@ export class UserUpdatePhotoComponent implements OnInit {
   //Gets called when the user clicks on submit to upload the image
   onUpload() {
     console.log(this.selectedFile);
-    
+
     //FormData API provides methods and properties to allow us easily prepare form data to be sent with POST HTTP requests.
     const uploadImageData = new FormData();
     uploadImageData.append('imageFile', this.selectedFile, this.selectedFile.name);
-  
+
     //Make a call to the Spring Boot Application to save the image
     this.httpClient.post('http://localhost:8300/image/upload', uploadImageData, { observe: 'response' })
       .subscribe((response) => {
@@ -86,8 +87,8 @@ export class UserUpdatePhotoComponent implements OnInit {
       }
       );
   }
-    //Gets called when the user clicks on retieve image button to get the image from back end
-    getImage() {
+  //Gets called when the user clicks on retieve image button to get the image from back end
+  getImage() {
     //Make a call to Sprinf Boot to get the Image Bytes.
     this.httpClient.get('http://localhost:8300/image/get/' + this.imageName)
       .subscribe(
@@ -101,8 +102,8 @@ export class UserUpdatePhotoComponent implements OnInit {
 
   onSubmit(): void {
     this.submitted = false;
-     console.log(this.user);
-     console.log(this.userForm.value);
+    // console.log(this.user);
+    console.log(this.userForm.value);
     this.updateUser();
 
   }
@@ -110,7 +111,7 @@ export class UserUpdatePhotoComponent implements OnInit {
   updateUser() {
     this.userService.updateUser(this.username, this.userForm.value)
       .subscribe(data => {
-        console.log(data);
+        // console.log(data);
         this.user = new User();
         this.goToProfile();
       }, error => console.log(error));

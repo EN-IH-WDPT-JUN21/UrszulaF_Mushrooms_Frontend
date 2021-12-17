@@ -1,240 +1,236 @@
 <div class="bg-image" style="background-image: url('assets/images/{{selectedMushroom.photoURL}}D.jpg');
 height: 100%; width: 100%">
-    <br/>
-    <br/>
-      <div class="container">
-          <h1>{{selectedMushroom.mushroomName| replace : '-' : ' '}} - {{'UPDATE.Title' | translate}}</h1>
-          <a href="#" class="image main"><img src="assets/images/{{selectedMushroom.photoURL}}M.jpg" alt="" width=100% /></a>
-          <div class="container">
-            <div class="row">
-                <div class="col-md-6 offset-md-3">
-    <form (ngSubmit)="onSubmit()" [formGroup]="mushroomForm">
-        <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>Mushroom name</mat-label>
-            <input type="text" matInput formControlName="mushroomName" placeholder="Mushroom name...">
-            <mat-error *ngIf="mushroomName.hasError('invalidName')">
+  <br />
+  <br />
+  <div class="container">
+    <h1>{{selectedMushroom.mushroomName| replace : '-' : ' '}} - {{'UPDATE.Title' | translate}}</h1>
+    <a href="#" class="image main"><img src="assets/images/{{selectedMushroom.photoURL}}M.jpg" alt="" width=100% /></a>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 offset-md-3">
+          <form (ngSubmit)="onSubmit()" [formGroup]="mushroomForm">
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Mushroom name</mat-label>
+              <input type="text" matInput formControlName="mushroomName" placeholder="Mushroom name...">
+              <mat-error *ngIf="mushroomName.hasError('invalidName')">
                 Please enter a mushroom name
-            </mat-error> 
-            <mat-error *ngIf="mushroomName.invalid && (mushroomName.touched || mushroomName.dirty)">
+              </mat-error>
+              <mat-error *ngIf="mushroomName.invalid && (mushroomName.touched || mushroomName.dirty)">
                 Please enter 3-25 letters, only letters
-          </mat-error>
-        </mat-form-field>
+              </mat-error>
+            </mat-form-field>
 
-        <br/>
-        <mat-form-field class="example-full-width" appearance="fill">
-          <mat-label>other names</mat-label>
-          <input type="text" matInput formControlName="otherNames" placeholder="other names...">
-          <mat-error *ngIf="otherNames.invalid && (otherNames.touched || otherNames.dirty)">
-            Please enter 3-100 letters
-        </mat-error>
-      </mat-form-field>
+            <br />
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>other names</mat-label>
+              <input type="text" matInput formControlName="otherNames" placeholder="other names...">
+              <mat-error *ngIf="otherNames.invalid && (otherNames.touched || otherNames.dirty)">
+                Please enter 3-100 letters
+              </mat-error>
+            </mat-form-field>
 
-      <label id="example-radio-group-label">Is it edible?</label>
-      <br/>
-      <br/>
-      <mat-radio-group
-        aria-labelledby="example-radio-group-label"
-        class="example-radio-group"
-        formControlName="edibleString">
-          <mat-radio-button value=true>True</mat-radio-button>
-          <mat-radio-button value=false>False</mat-radio-button>
-        </mat-radio-group>
-  
-        <br/>
-        <mat-form-field class="example-full-width" appearance="fill">
-          <mat-label>consumable value</mat-label>
-          <mat-select formControlName="consumable">
-            <mat-option value="" invalid>Select an option</mat-option>
-            <mat-option *ngFor="let consumable of consumables" [value]="consumable">{{ consumable | lowercase }}</mat-option>
-          </mat-select>
-          <mat-error *ngIf="consumable.invalid && (consumable.touched || consumable.dirty)">
-            Select a valid type 
-          </mat-error>
-        </mat-form-field>  
-  
-        <br/>
-  
-        <br/>
-        <mat-form-field class="example-full-width" appearance="fill">
-          <mat-label>when fruiting</mat-label>
-          <input type="text" matInput formControlName="whenFruiting" placeholder="when fruiting...">
-          <mat-error *ngIf="whenFruiting.hasError('required')">
-              Please enter when
-          </mat-error> 
-          <mat-error *ngIf="whenFruiting.invalid && (whenFruiting.touched || whenFruiting.dirty)">
-            Please enter 3-100 letters
-        </mat-error>
-      </mat-form-field>
-  
-    <br/>
-    <mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>where fruiting</mat-label>
-      <input type="text" matInput formControlName="whereFruiting" placeholder="where fruiting...">
-      <mat-error *ngIf="whereFruiting.hasError('required')">
-          Please enter where
-      </mat-error> 
-      <mat-error *ngIf="whereFruiting.invalid && (whereFruiting.touched || whereFruiting.dirty)">
-        Please enter 3-100 letters
-    </mat-error>
-  </mat-form-field>
+            <label id="example-radio-group-label">Is it edible?</label>
+            <br />
+            <br />
+            <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+              formControlName="edibleString">
+              <mat-radio-button value=true>True</mat-radio-button>
+              <mat-radio-button value=false>False</mat-radio-button>
+            </mat-radio-group>
 
-  <br/>
-  <mat-form-field class="example-full-width" appearance="fill">
-    <mat-label>hat</mat-label>
-    <input type="text" matInput formControlName="hat" placeholder="hat...">
-    <mat-error *ngIf="hat.hasError('required')">
-        Please enter a hat
-    </mat-error> 
-    <mat-error *ngIf="hat.invalid && (hat.touched || hat.dirty)">
-      Please enter 3-100 letters
-  </mat-error>
-</mat-form-field>
+            <br />
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>consumable value</mat-label>
+              <mat-select formControlName="consumable">
+                <mat-option value="" invalid>Select an option</mat-option>
+                <mat-option *ngFor="let consumable of consumables" [value]="consumable">{{ consumable | lowercase }}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="consumable.invalid && (consumable.touched || consumable.dirty)">
+                Select a valid type
+              </mat-error>
+            </mat-form-field>
 
-<br/>
-<mat-form-field class="example-full-width" appearance="fill">
-  <mat-label>stem</mat-label>
-  <input type="text" matInput formControlName="stem" placeholder="stem...">
-  <mat-error *ngIf="stem.hasError('required')">
-      Please enter a stem
-  </mat-error> 
-  <mat-error *ngIf="stem.invalid && (stem.touched || stem.dirty)">
-    Please enter 3-100 letters
-</mat-error>
-</mat-form-field>
+            <br />
 
-<br/>
-<mat-form-field class="example-full-width" appearance="fill">
-  <mat-label>tubes</mat-label>
-  <input type="text" matInput formControlName="tubes" placeholder="tubes...">
-  <mat-error *ngIf="tubes.hasError('required')">
-      Please enter a tubes
-  </mat-error> 
-  <mat-error *ngIf="tubes.invalid && (tubes.touched || tubes.dirty)">
-    Please enter 3-100 letters
-</mat-error>
-</mat-form-field>
+            <br />
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>when fruiting</mat-label>
+              <input type="text" matInput formControlName="whenFruiting" placeholder="when fruiting...">
+              <mat-error *ngIf="whenFruiting.hasError('required')">
+                Please enter when
+              </mat-error>
+              <mat-error *ngIf="whenFruiting.invalid && (whenFruiting.touched || whenFruiting.dirty)">
+                Please enter 3-100 letters
+              </mat-error>
+            </mat-form-field>
 
-<br/>
-<mat-form-field class="example-full-width" appearance="fill">
-  <mat-label>gills</mat-label>
-  <input type="text" matInput formControlName="gills" placeholder="gills...">
-  <mat-error *ngIf="gills.hasError('required')">
-      Please enter a gills
-  </mat-error> 
-  <mat-error *ngIf="gills.invalid && (gills.touched || gills.dirty)">
-    Please enter 3-100 letters
-</mat-error>
-</mat-form-field>
+            <br />
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>where fruiting</mat-label>
+              <input type="text" matInput formControlName="whereFruiting" placeholder="where fruiting...">
+              <mat-error *ngIf="whereFruiting.hasError('required')">
+                Please enter where
+              </mat-error>
+              <mat-error *ngIf="whereFruiting.invalid && (whereFruiting.touched || whereFruiting.dirty)">
+                Please enter 3-100 letters
+              </mat-error>
+            </mat-form-field>
 
-<br/>
-<mat-form-field class="example-full-width" appearance="fill">
-  <mat-label>ring</mat-label>
-  <input type="text" matInput formControlName="ring" placeholder="ring...">
-  <mat-error *ngIf="ring.hasError('required')">
-      Please enter a ring
-  </mat-error> 
-  <mat-error *ngIf="ring.invalid && (ring.touched || ring.dirty)">
-    Please enter 3-100 letters
-</mat-error>
-</mat-form-field>
+            <br />
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>hat</mat-label>
+              <input type="text" matInput formControlName="hat" placeholder="hat...">
+              <mat-error *ngIf="hat.hasError('required')">
+                Please enter a hat
+              </mat-error>
+              <mat-error *ngIf="hat.invalid && (hat.touched || hat.dirty)">
+                Please enter 3-100 letters
+              </mat-error>
+            </mat-form-field>
 
-<br/>
-<mat-form-field class="example-full-width" appearance="fill">
-  <mat-label>pulp</mat-label>
-  <input type="text" matInput formControlName="pulp" placeholder="pulp...">
-  <mat-error *ngIf="pulp.hasError('required')">
-      Please enter a pulp
-  </mat-error> 
-  <mat-error *ngIf="pulp.invalid && (pulp.touched || pulp.dirty)">
-    Please enter 3-100 letters
-</mat-error>
-</mat-form-field>
+            <br />
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>stem</mat-label>
+              <input type="text" matInput formControlName="stem" placeholder="stem...">
+              <mat-error *ngIf="stem.hasError('required')">
+                Please enter a stem
+              </mat-error>
+              <mat-error *ngIf="stem.invalid && (stem.touched || stem.dirty)">
+                Please enter 3-100 letters
+              </mat-error>
+            </mat-form-field>
 
-<br/>
-<mat-form-field class="example-full-width" appearance="fill">
-  <mat-label>smell</mat-label>
-  <input type="text" matInput formControlName="smell" placeholder="smell...">
-  <mat-error *ngIf="smell.hasError('required')">
-      Please enter a smell
-  </mat-error> 
-  <mat-error *ngIf="smell.invalid && (smell.touched || smell.dirty)">
-    Please enter 3-100 letters
-</mat-error>
-</mat-form-field>
+            <br />
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>tubes</mat-label>
+              <input type="text" matInput formControlName="tubes" placeholder="tubes...">
+              <mat-error *ngIf="tubes.hasError('required')">
+                Please enter a tubes
+              </mat-error>
+              <mat-error *ngIf="tubes.invalid && (tubes.touched || tubes.dirty)">
+                Please enter 3-100 letters
+              </mat-error>
+            </mat-form-field>
 
-<br/>
-<mat-form-field class="example-full-width" appearance="fill">
-  <mat-label>taste</mat-label>
-  <input type="text" matInput formControlName="taste" placeholder="taste...">
-  <mat-error *ngIf="taste.hasError('required')">
-      Please enter a taste
-  </mat-error> 
-  <mat-error *ngIf="taste.invalid && (taste.touched || taste.dirty)">
-    Please enter 3-100 letters
-</mat-error>
-</mat-form-field>
+            <br />
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>gills</mat-label>
+              <input type="text" matInput formControlName="gills" placeholder="gills...">
+              <mat-error *ngIf="gills.hasError('required')">
+                Please enter a gills
+              </mat-error>
+              <mat-error *ngIf="gills.invalid && (gills.touched || gills.dirty)">
+                Please enter 3-100 letters
+              </mat-error>
+            </mat-form-field>
 
-<br/>
-<mat-form-field class="example-full-width" appearance="fill">
-  <mat-label>differentiation</mat-label>
-  <input type="text" matInput formControlName="differentiation" placeholder="differentiation...">
-  <mat-error *ngIf="differentiation.hasError('required')">
-      Please enter a differentiation
-  </mat-error> 
-  <mat-error *ngIf="differentiation.invalid && (differentiation.touched || differentiation.dirty)">
-    Please enter 3-100 letters
-</mat-error>
-</mat-form-field>
+            <br />
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>ring</mat-label>
+              <input type="text" matInput formControlName="ring" placeholder="ring...">
+              <mat-error *ngIf="ring.hasError('required')">
+                Please enter a ring
+              </mat-error>
+              <mat-error *ngIf="ring.invalid && (ring.touched || ring.dirty)">
+                Please enter 3-100 letters
+              </mat-error>
+            </mat-form-field>
 
-<br/>
-<mat-form-field class="example-full-width" appearance="fill">
-  <mat-label>similar</mat-label>
-  <input type="text" matInput formControlName="similar" placeholder="similar...">
-  <mat-error *ngIf="similar.hasError('required')">
-      Please enter a similar
-  </mat-error> 
-  <mat-error *ngIf="similar.invalid && (similar.touched || similar.dirty)">
-    Please enter 3-100 letters
-</mat-error>
-</mat-form-field>
+            <br />
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>pulp</mat-label>
+              <input type="text" matInput formControlName="pulp" placeholder="pulp...">
+              <mat-error *ngIf="pulp.hasError('required')">
+                Please enter a pulp
+              </mat-error>
+              <mat-error *ngIf="pulp.invalid && (pulp.touched || pulp.dirty)">
+                Please enter 3-100 letters
+              </mat-error>
+            </mat-form-field>
 
-<br/>
-<mat-form-field class="example-full-width" appearance="fill">
-  <mat-label>foodValue</mat-label>
-  <input type="text" matInput formControlName="foodValue" placeholder="foodValue...">
-  <mat-error *ngIf="foodValue.hasError('required')">
-      Please enter a foodValue
-  </mat-error> 
-  <mat-error *ngIf="foodValue.invalid && (foodValue.touched || foodValue.dirty)">
-    Please enter 3-100 letters
-</mat-error>
-</mat-form-field>
-  
-<br/>
-<mat-form-field class="example-full-width" appearance="fill">
-  <mat-label>photo URL</mat-label>
-  <input type="text" matInput formControlName="photoURL" placeholder="photo URL...">
-</mat-form-field>
-  
-  <br/>
-  <mat-form-field class="example-full-width" appearance="fill">
-    <mat-label>remarks</mat-label>
-    <input type="text" matInput formControlName="remarks" placeholder="remarks..." class="heighttext">
-  </mat-form-field>
-  
-        <br/>
-        <div class="buttons text-center">
-        <button class="btn btn-success" color="primary" type= "submit" [disabled] = "mushroomForm.invalid">Submit</button>
-        <button class="btn btn-warning" (click)="mushroomDetails(id)">Cancel</button>
+            <br />
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>smell</mat-label>
+              <input type="text" matInput formControlName="smell" placeholder="smell...">
+              <mat-error *ngIf="smell.hasError('required')">
+                Please enter a smell
+              </mat-error>
+              <mat-error *ngIf="smell.invalid && (smell.touched || smell.dirty)">
+                Please enter 3-100 letters
+              </mat-error>
+            </mat-form-field>
+
+            <br />
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>taste</mat-label>
+              <input type="text" matInput formControlName="taste" placeholder="taste...">
+              <mat-error *ngIf="taste.hasError('required')">
+                Please enter a taste
+              </mat-error>
+              <mat-error *ngIf="taste.invalid && (taste.touched || taste.dirty)">
+                Please enter 3-100 letters
+              </mat-error>
+            </mat-form-field>
+
+            <br />
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>differentiation</mat-label>
+              <input type="text" matInput formControlName="differentiation" placeholder="differentiation...">
+              <mat-error *ngIf="differentiation.hasError('required')">
+                Please enter a differentiation
+              </mat-error>
+              <mat-error *ngIf="differentiation.invalid && (differentiation.touched || differentiation.dirty)">
+                Please enter 3-100 letters
+              </mat-error>
+            </mat-form-field>
+
+            <br />
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>similar</mat-label>
+              <input type="text" matInput formControlName="similar" placeholder="similar...">
+              <mat-error *ngIf="similar.hasError('required')">
+                Please enter a similar
+              </mat-error>
+              <mat-error *ngIf="similar.invalid && (similar.touched || similar.dirty)">
+                Please enter 3-100 letters
+              </mat-error>
+            </mat-form-field>
+
+            <br />
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>foodValue</mat-label>
+              <input type="text" matInput formControlName="foodValue" placeholder="foodValue...">
+              <mat-error *ngIf="foodValue.hasError('required')">
+                Please enter a foodValue
+              </mat-error>
+              <mat-error *ngIf="foodValue.invalid && (foodValue.touched || foodValue.dirty)">
+                Please enter 3-100 letters
+              </mat-error>
+            </mat-form-field>
+
+            <br />
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>photo URL</mat-label>
+              <input type="text" matInput formControlName="photoURL" placeholder="photo URL...">
+            </mat-form-field>
+
+            <br />
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>remarks</mat-label>
+              <input type="text" matInput formControlName="remarks" placeholder="remarks..." class="heighttext">
+            </mat-form-field>
+
+            <br />
+            <div class="buttons text-center">
+              <button class="btn btn-success" color="primary" type="submit"
+                [disabled]="mushroomForm.invalid">Submit</button>
+              <button class="btn btn-warning" (click)="mushroomDetails(id)">Cancel</button>
+            </div>
+          </form>
+
         </div>
-    </form>
-  
+      </div>
+    </div>
   </div>
-  </div>
-  </div>
-  </div>
-  </div>
-  <br/>
-  <br/>
-  
-
+</div>

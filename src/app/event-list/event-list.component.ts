@@ -20,33 +20,33 @@ export class EventListComponent implements OnInit {
 
   constructor(private eventService: EventService,
     private router: Router) {
-      this.id=0;
-      this.eventType="";
-      this.event= new EventItem(0,"","",new Date(),0, "", "","");
-      this.selectedEvent= new EventItem(0,"","",new Date(),0, "", "","");
-      this.events = new Array();
-      this.today=new Date();
-    }
+    this.id = 0;
+    this.eventType = "";
+    this.event = new EventItem(0, "", "", new Date(), 0, "", "", "");
+    this.selectedEvent = new EventItem(0, "", "", new Date(), 0, "", "", "");
+    this.events = new Array();
+    this.today = new Date();
+  }
 
   ngOnInit() {
     this.reloadData();
-    this.today=new Date();
+    this.today = new Date();
   }
 
   reloadData() {
     this.eventService.getEventsList().subscribe(apiResponse => {
       this.events = apiResponse;
     })
-;
+      ;
   }
 
-  onSelect(event: EventItem):void{
-    this.selectedEvent=event;
+  onSelect(event: EventItem): void {
+    this.selectedEvent = event;
     this.eventDetails(this.selectedEvent.id)
-    }
+  }
 
 
-  eventDetails(id: number){
+  eventDetails(id: number) {
     this.router.navigate(['event-details', id]);
   }
 
@@ -60,13 +60,13 @@ export class EventListComponent implements OnInit {
     this.eventService.searchEvents(this.eventType).subscribe(apiResponse => {
       this.events = apiResponse;
     },
-    error => {
-      console.log(error);
-      window.alert("No such event.Try again!")
-    });
+      error => {
+        console.log(error);
+        window.alert("No such event.Try again!")
+      });
   }
 
-  eventAdd(){
+  eventAdd() {
     this.router.navigate(['event-form']);
   }
 

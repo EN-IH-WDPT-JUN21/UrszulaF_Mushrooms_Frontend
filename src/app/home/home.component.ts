@@ -11,42 +11,42 @@ export class HomeComponent implements OnInit {
   username!: string | null;
 
   constructor(private activatedRoute: ActivatedRoute,
-    private router: Router) { 
+    private router: Router) {
   }
 
   ngOnInit(): void {
   }
 
   getData() {
-    if (localStorage.getItem('username')){
+    if (localStorage.getItem('username')) {
       return localStorage.getItem('username')
     }
     return 'Anonymous'
-    
- }
 
- sendToLogin(): void {
-  this.router.navigate(['/login']);
-}
+  }
+
+  sendToLogin(): void {
+    this.router.navigate(['/login']);
+  }
 
 
- sendToRegister(): void {
-  this.router.navigate(['/register']);
-}
+  sendToRegister(): void {
+    this.router.navigate(['/register']);
+  }
 
-sendToMushrooms(): void {
-  this.router.navigate(['/mushroom-list']);
-}
+  sendToMushrooms(): void {
+    this.router.navigate(['/mushroom-list']);
+  }
 
-sendToEvents(): void {
-  this.router.navigate(['/event-list']);
-}
+  sendToEvents(): void {
+    this.router.navigate(['/event-list']);
+  }
 
-sendToQuizz(): void {
-  this.router.navigate(['/quizz/1']);
-}
+  sendToQuizz(): void {
+    this.router.navigate(['/quizz/1']);
+  }
 
-sendToAnimals(): void {
-  this.router.navigate(['/animal-list']);
-}
+  sendToAnimals(): void {
+    this.router.navigate(['/animal-list']);
+  }
 }

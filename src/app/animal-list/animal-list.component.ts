@@ -20,12 +20,12 @@ export class AnimalListComponent implements OnInit {
 
   constructor(private animalService: AnimalService,
     private router: Router) {
-      this.id=0;
-      this.animalName="";
-      this.animal= new Animal(0,"","","", "", "","","");
-      this.selectedAnimal= new Animal(0,"","","", "", "","","");
-      this.animals = new Array();
-    }
+    this.id = 0;
+    this.animalName = "";
+    this.animal = new Animal(0, "", "", "", "", "", "", "");
+    this.selectedAnimal = new Animal(0, "", "", "", "", "", "", "");
+    this.animals = new Array();
+  }
 
   ngOnInit() {
     this.reloadData();
@@ -35,13 +35,13 @@ export class AnimalListComponent implements OnInit {
     this.animalService.getAnimalsList().subscribe(apiResponse => {
       this.animals = apiResponse;
     })
-;
+      ;
   }
 
-  onSelect(animal: Animal):void{
-    this.selectedAnimal=animal;
+  onSelect(animal: Animal): void {
+    this.selectedAnimal = animal;
     this.animalDetails(this.selectedAnimal.id)
-    }
+  }
 
 
 
@@ -58,7 +58,7 @@ export class AnimalListComponent implements OnInit {
 
   }
 
-  animalDetails(id: number){
+  animalDetails(id: number) {
     this.router.navigate(['animal-details', id]);
   }
 
@@ -72,13 +72,13 @@ export class AnimalListComponent implements OnInit {
     this.animalService.searchAnimals(this.animalName).subscribe(apiResponse => {
       this.animals = apiResponse;
     },
-    error => {
-      console.log(error);
-      window.alert("No such animal.Try again!")
-    });
+      error => {
+        console.log(error);
+        window.alert("No such animal.Try again!")
+      });
   }
 
-  animalAdd(){
+  animalAdd() {
     this.router.navigate(['animal-form']);
   }
 

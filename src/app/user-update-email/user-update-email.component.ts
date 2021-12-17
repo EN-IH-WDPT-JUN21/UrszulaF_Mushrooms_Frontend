@@ -36,19 +36,20 @@ export class UserUpdateEmailComponent implements OnInit {
     })
 
 
-    this.username="";
-    this.user= new User();
+    this.username = "";
+    this.user = new User();
   }
 
   ngOnInit(): void {
-    this.user= new User();
+    this.user = new User();
     this.username = localStorage.getItem("username");
-    
+
     this.userService.getUser(this.username)
       .subscribe(data => {
-        console.log(data)
+        // console.log(data)
         this.user = data;
-        this.userForm.patchValue({email: this.user.email
+        this.userForm.patchValue({
+          email: this.user.email
         });
       }, error => console.log(error));
   }
@@ -56,8 +57,8 @@ export class UserUpdateEmailComponent implements OnInit {
 
   onSubmit(): void {
     this.submitted = false;
-     console.log(this.user);
-     console.log(this.userForm.value);
+    // console.log(this.user);
+    console.log(this.userForm.value);
     this.updateUser();
 
   }
@@ -65,7 +66,7 @@ export class UserUpdateEmailComponent implements OnInit {
   updateUser() {
     this.userService.updateUser(this.username, this.userForm.value)
       .subscribe(data => {
-        console.log(data);
+        // console.log(data);
         this.user = new User();
         this.goToProfile();
       }, error => console.log(error));

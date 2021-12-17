@@ -1,13 +1,13 @@
 <div class="bg">
-    <br/>
-<br/>
+    <br />
+    <br />
     <div class="container">
         <h1>{{'LOGIN.Title' | translate}}</h1>
         <a href="#" class="image main"><img src="assets/images/mushroomsM.jpg" alt="" width=100% /></a>
         <div class="container">
             <div class="row">
                 <div class="col-md-6 offset-md-3">
-       
+
                     <form (ngSubmit)="onSubmit()">
                         <mat-form-field class="full-width">
                             <mat-label>UserName</mat-label>
@@ -17,54 +17,24 @@
                             <mat-label>Password</mat-label>
                             <input [(ngModel)]="credentials.password" name="password" required type="password" matInput>
                         </mat-form-field>
-                        
+
                         <div class="buttons text-center">
                             <button type="submit" class="btn btn-success"> Login</button>
                             <button class="btn btn-warning" (click)="sendToRegister()">Register</button>
                         </div>
-    
+
                     </form>
-    
-                    <br/>
-                   <p class="mt">{{ credentials | json}} </p> 
+
+                    <br />
+                    <p class="mt">{{ credentials | json}} </p>
                 </div>
             </div>
         </div>
-        <!-- <div *ngIf="isLogged()==false"> -->
-            <!-- <form class ="form" (ngSubmit)="onSubmit()" #form="ngForm">
-    
-                <div class="form-group">
-                    <label for="name">Username: </label>
-                    <input ngModel required username [(ngModel)]="user.username" name="username" type="text" placeholder="Username..." #usernameInput="ngModel" >
-                    <p class="error-msg" *ngIf="usernameInput.invalid && usernameInput.touched">Please write your username</p>
-                </div>
-                <div class="form-group">
-                    <label for="password">Password: </label>
-                    <input ngModel required [(ngModel)]="user.password" minlength="4" maxlength="20" name="password" type="password" placeholder="Password..." #passwordInput="ngModel" >
-                    <p class="error-msg" *ngIf="passwordInput.invalid && passwordInput.touched">The password must be between 4 and 20 characters</p>
-                </div>
-     
-                <div class="buttons">
-                    <button type="submit" [disabled]="submitted" class="btn btn-success">Login</button>
-                    <button class="btn btn-warning" (click)="sendToRegister()">Register</button>
-                    
-                </div>
-            </form> -->
-        <!-- </div> -->
+
         <div *ngIf="wrong==true">
-            <h4>Wrong credentials. Try again!</h4>  
+            <h4>Wrong credentials. Try again!</h4>
         </div>
-        <!-- <div *ngIf="isLogged()==true">
-            <br>
-            <h4>You are already logged in. Do you want to logout?</h4>  
-            <button class="btn btn-danger" (click)="logout()">Go to Logout</button>
-        </div> -->
-        
+
     </div>
-    
-    
-    
-    
-    </div>
-    <br/>
-    <br/>
+
+</div>

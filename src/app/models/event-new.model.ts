@@ -45,15 +45,15 @@ export class EventNew {
 
 
 
-    constructor( 
+    constructor(
         private eventName: string,
         private eventTypeName: string,
         private whenEvent: Date,
         private duration: number,
         private whereEvent: string,
         private contactPerson: string,
-        private description: string     
-        ){}
+        private description: string
+    ) { }
 
-        
-  }
+
+}

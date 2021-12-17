@@ -1,60 +1,59 @@
-
-
 <div class="bg">
-    <br/>
-    <br/>
-      <div class="container">
-          <h1>{{event.eventName | replace : '-' : ' '| titlecase}}  - {{'DETAILS.Title' | translate}}</h1>
-          
-      <div>
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th>title</th>
-              <th>description</th>
-  
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>name:</td>
-              <td>{{event.eventName| replace : '-' : ' '| titlecase}}</td>
-            </tr>
-            <tr>
-              <td>type</td>
-              <td>{{event.eventType| replace : '_' : ' '| titlecase}}</td>
-            </tr>
-            <tr>
-              <td>when: </td>
-              <td>{{event.whenEvent| date: 'dd/MMM/yyyy h:mm a'}}</td>
-            </tr>
-            <tr>
-              <td>duration (minutes): </td>
-              <td>{{event.duration}} min</td>
-            </tr>
-            <tr>
-              <td>where: </td>
-              <td>{{event.whereEvent}}</td>
-            </tr>
-            <tr>
-              <td>contact: </td>
-              <td>{{event.contactPerson}}</td>
-            </tr>
-            <tr>
-              <td>description: </td>
-              <td>{{event.description}}</td>
-            </tr>
-            
-          </tbody>
-        </table>
-  
-  
-  
-    <!-- <button [disabled]="clicked" (click)="deleteEvent(event.id); clicked = true;" class="btn btn-danger">Delete</button> -->
-    <button class="btn btn-success" (click)="eventList()">Back to List</button>
-      <button *ngIf="isAdmin || isPremium" (click)="updateEvent(event.id)" class="btn btn-warning" style="margin-left: 10px">Update</button>
+  <br />
+  <br />
+  <div class="container">
+    <h1>{{event.eventName | replace : '-' : ' '| titlecase}} - {{'DETAILS.Title' | translate}}</h1>
+
+    <div>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>title</th>
+            <th>description</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>name:</td>
+            <td>{{event.eventName| replace : '-' : ' '| titlecase}}</td>
+          </tr>
+          <tr>
+            <td>type</td>
+            <td>{{event.eventType| replace : '_' : ' '| titlecase}}</td>
+          </tr>
+          <tr>
+            <td>when: </td>
+            <td>{{event.whenEvent| date: 'dd/MMM/yyyy h:mm a'}}</td>
+          </tr>
+          <tr>
+            <td>duration (minutes): </td>
+            <td>{{event.duration}} min</td>
+          </tr>
+          <tr>
+            <td>where: </td>
+            <td>{{event.whereEvent}}</td>
+          </tr>
+          <tr>
+            <td>contact: </td>
+            <td>{{event.contactPerson}}</td>
+          </tr>
+          <tr>
+            <td>description: </td>
+            <td>{{event.description}}</td>
+          </tr>
+
+        </tbody>
+      </table>
+
+
+
+
+      <button class="btn btn-success" (click)="eventList()">Back to List</button>
+      <button *ngIf="isAdmin || isPremium" (click)="updateEvent(event.id)" class="btn btn-warning"
+        style="margin-left: 10px">Update</button>
       <button *ngIf="isAdmin" (click)="deleteEvent(event.id)" class="btn btn-danger">Delete</button>
       <p>{{txt}}</p>
-  </div>
+    </div>
   </div>
 </div>

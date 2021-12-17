@@ -28,7 +28,7 @@ export class UserUpdateAdminComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private router: Router
   ) {
-    this.roles=['USER','PREMIUM','ADMIN'];
+    this.roles = ['USER', 'PREMIUM', 'ADMIN'];
     this.email = new FormControl('', [Validators.required, Validators.email]);
     this.role = new FormControl('', [Validators.required]);
 
@@ -38,18 +38,19 @@ export class UserUpdateAdminComponent implements OnInit {
     })
 
 
-    this.username="";
-    this.user= new User();
+    this.username = "";
+    this.user = new User();
   }
 
   ngOnInit(): void {
-    this.user= new User();
+    this.user = new User();
     this.username = this.activatedRoute.snapshot.params['username'];
     this.userService.getUser(this.username)
       .subscribe(data => {
-        console.log(data)
+        // console.log(data)
         this.user = data;
-        this.userForm.patchValue({email: this.user.email,
+        this.userForm.patchValue({
+          email: this.user.email,
           role: this.user.role
         });
       }, error => console.log(error));
@@ -58,8 +59,8 @@ export class UserUpdateAdminComponent implements OnInit {
 
   onSubmit(): void {
     this.submitted = false;
-     console.log(this.user);
-     console.log(this.userForm.value);
+    // console.log(this.user);
+    console.log(this.userForm.value);
     this.updateUser();
 
   }
@@ -67,7 +68,7 @@ export class UserUpdateAdminComponent implements OnInit {
   updateUser() {
     this.userService.updateUser(this.username, this.userForm.value)
       .subscribe(data => {
-        console.log(data);
+        // console.log(data);
         this.user = new User();
         this.goToProfile();
       }, error => console.log(error));

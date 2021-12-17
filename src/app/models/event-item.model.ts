@@ -50,15 +50,15 @@ export class EventItem {
 
 
 
-    constructor( private _id: number,
+    constructor(private _id: number,
         private _eventName: string,
         private _eventType: string,
         private _whenEvent: Date,
         private _duration: number,
         private _whereEvent: string,
         private _contactPerson: string,
-        private _description: string     
-        ){}
+        private _description: string
+    ) { }
 
-        
-  }
+
+}

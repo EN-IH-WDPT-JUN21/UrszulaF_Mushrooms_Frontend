@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class MushroomService {
 
-  private baseUrl = 'http://localhost:8100/api/mushrooms';
+  private baseUrl = 'http://localhost:8000/api/mushrooms';
 
 
   constructor(private http: HttpClient) { }
@@ -41,16 +41,4 @@ export class MushroomService {
     return this.http.get(`${this.baseUrl}/containing/${mushroomName}`);
   }
 
-
-  // searchAnimals(startAge: number, endAge: number, type:string): Observable<any> {
-  //   let httpParams = new HttpParams();
-  //   if (startAge) httpParams = httpParams.append('startAge', startAge);
-  //   // if (endAge) httpParams = httpParams.append('endAge', endAge);
-  //   // if (type) httpParams = httpParams.append('type', type);
-
-  //   const httpOptions = {
-  //     params: httpParams
-  //   };
-  //   return this.http.get<any>(this.baseUrl + '/adopt', httpOptions);
-  // }
 }

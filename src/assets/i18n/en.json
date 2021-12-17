@@ -82,5 +82,12 @@
         "Address": "Address:",
         "End": "Please don't hesitate and contact us"
 
+    },
+    "PHOTO":{
+        "Title": "Upload Image (max 60KB)",
+        "1": "1. Select Image",
+        "2": "2. Preview Image",
+        "3": "3. Attach Image to Profile"
+
     }
 }

@@ -1,29 +1,35 @@
 <nav>
-    <ul class="menu">
-      <li><a class="menu-item" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">{{'HEADER.Home' | translate}}</a></li>
-      <div *ngIf="!loggedIn">
-        <li><a class="menu-item" routerLink="/login" routerLinkActive="active">{{'HEADER.Login' | translate}}</a></li>
-    </div>  
+  <ul class="menu">
+    <li><a class="menu-item" routerLink="/" routerLinkActive="active"
+        [routerLinkActiveOptions]="{exact: true}">{{'HEADER.Home' | translate}}</a></li>
     <div *ngIf="!loggedIn">
-      <li><a class="menu-item" routerLink="/register" routerLinkActive="active">{{'HEADER.Register' | translate}}</a></li>
-    </div>  
+      <li><a class="menu-item" routerLink="/login" routerLinkActive="active">{{'HEADER.Login' | translate}}</a></li>
+    </div>
+    <div *ngIf="!loggedIn">
+      <li><a class="menu-item" routerLink="/register" routerLinkActive="active">{{'HEADER.Register' | translate}}</a>
+      </li>
+    </div>
     <div *ngIf="loggedIn">
-  
+
       <li><a class="menu-item" (click)="logoutUser()">{{'HEADER.Logout' | translate}}</a></li>
     </div>
     <div *ngIf="loggedIn">
-  
-      <li><a class="menu-item" routerLink="/profile" routerLinkActive="active">{{'HEADER.User profile' | translate}}</a></li>
+
+      <li><a class="menu-item" routerLink="/profile" routerLinkActive="active">{{'HEADER.User profile' | translate}}</a>
+      </li>
     </div>
-    <li><a class="menu-item" routerLink="/mushroom-list" routerLinkActive="active">{{'HEADER.Mushrooms' | translate}}</a></li>
+    <li><a class="menu-item" routerLink="/mushroom-list" routerLinkActive="active">{{'HEADER.Mushrooms' |
+        translate}}</a></li>
     <li><a class="menu-item" routerLink="/event-list" routerLinkActive="active">{{'HEADER.Events' | translate}}</a></li>
     <li><a class="menu-item" routerLink="/quizz/1" routerLinkActive="active">{{'HEADER.Quiz' | translate}}</a></li>
-    <li><a class="menu-item" routerLink="/animal-list" routerLinkActive="active">{{'HEADER.Animals' | translate}}</a></li>
+    <li><a class="menu-item" routerLink="/animal-list" routerLinkActive="active">{{'HEADER.Animals' | translate}}</a>
+    </li>
     <div *ngIf="loggedIn && isAdmin">
-  
-      <li><a class="menu-item" routerLink="/user-list" routerLinkActive="active">{{'HEADER.User list' | translate}}</a></li>
+
+      <li><a class="menu-item" routerLink="/user-list" routerLinkActive="active">{{'HEADER.User list' | translate}}</a>
+      </li>
     </div>
-    </ul>
+  </ul>
 </nav>
 <div class="select-container">
   <label for="lang">{{'HEADER.Select' | translate}}</label>
@@ -31,5 +37,3 @@
     <option *ngFor="let lang of translate.getLangs()" [value]="lang"> {{lang}} </option>
   </select>
 </div>
-
-

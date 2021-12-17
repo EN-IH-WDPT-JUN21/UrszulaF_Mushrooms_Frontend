@@ -14,154 +14,54 @@ import { UserService } from '../services/user.service';
 export class LoginFormComponent implements OnInit {
   submitted = false;
   wrong = false;
-  credentials={
-    username:"",
-    password:""
+  credentials = {
+    username: "",
+    password: ""
   }
 
-  constructor(private loginService:LoginService,
+  constructor(private loginService: LoginService,
     private activatedRoute: ActivatedRoute,
-    private router: Router) { 
+    private router: Router) {
   }
 
   ngOnInit(): void {
   }
 
-  onSubmit(){
+  onSubmit() {
     console.log("Form Submitted");
 
-    if(this.credentials.username != "" && this.credentials.password != ""){
+    if (this.credentials.username != "" && this.credentials.password != "") {
       console.log("Submit the form");
 
       this.loginService.generateToken(this.credentials).subscribe(
-        (response:any) =>{
+        (response: any) => {
           //success
           console.log(response.token);
           this.loginService.loginUser(response.token, this.credentials.username);
-          this.wrong=false;
-          this.submitted=true;
-          window.location.href="/profile";
-          
+          this.wrong = false;
+          this.submitted = true;
+          window.location.href = "/profile";
+
         },
         //error part
-        error=>{
-          this.submitted=false;
-          this.wrong=true;
+        error => {
+          this.submitted = false;
+          this.wrong = true;
           console.log(error);
           window.alert("Wrong credentials.Try again!")
         }
-      ) 
+      )
       //generate token
 
 
     }
-    else{
-      this.submitted=false;
-      this.wrong=true;
+    else {
+      this.submitted = false;
+      this.wrong = true;
       console.log("don't submit");
       window.alert("Wrong credentials.Try again!")
     }
   }
-/*  @ViewChild('form')
-  form!: NgForm;
-
-  submitted = false;
-  wrong = false;
-  isLoggedIn = false;
-
-  user: User;
-
-
-  users!: Observable<User[]>;
-
-
-
-  constructor(
-    private userService: UserService,
-    private activatedRoute: ActivatedRoute,
-    private router: Router
-
-  ) {
-    this.user = {
-      avatarURL: '',
-      username: '',
-      email: '',
-      password: '',
-      bio:'',
-      role: ''
-
-    }
-
-  }
-
-  ngOnInit(): void {
-    this.user = new User();
-    this.isLogged();
-    this.reloadData();
-  }
-
-  reloadData() {
-    this.users=this.userService.getUsersList();
-  }
-
-
-  getUser(username:String): void {
-    this.submitted = false;
-    this.userService.getUser(this.form.value.username)
-    .subscribe(data => {
-      if(data == null){
-        this.submitted=false;
-          this.wrong=true;
-      }
-      this.user = data;
-
-      if(this.form.value.password  === this.user.password){
-        this.wrong=false;
-        this.submitted=true;
-        localStorage.setItem(
-          'username',
-          (this.user.username)
-        );
-        localStorage.setItem(
-          'role',
-          (this.user.role)
-        );
-        this.router.navigate(['/']);
-
-      }else{
-        this.submitted=false;
-        this.wrong=true;
-        this.form.value.username='';
-        this.form.value.password='';
-        this.user = new User();
-      }
-    }, error => console.log(error));
-
-
-  }
-
-  onLogin(): void {
-    this.submitted=false;
-    this.wrong=true;
-    console.log(this.form.value);
-    console.log(this.form.value.username);
-
-    this.getUser(this.form.value.username); 
-    
-
-
-
-  }
-
-  isLogged(): boolean {
-    if (localStorage.getItem('username')) {
-      return true;
-
-    }else{
-      return false;
-    }
-
-  }*/
 
   logout(): void {
     this.router.navigate(['/logout'])
@@ -170,8 +70,5 @@ export class LoginFormComponent implements OnInit {
   sendToRegister(): void {
     this.router.navigate(['/register']);
   }
-
-
-
 
 }

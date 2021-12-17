@@ -19,12 +19,12 @@ export class MushroomListComponent implements OnInit {
 
   constructor(private mushroomService: MushroomService,
     private router: Router) {
-      this.id=0;
-      this.mushroomName="";
-      this.mushroom= new Mushroom(0,"","","", false, "", "","","","","","","","","","","","","","");
-      this.selectedMushroom= new Mushroom(0,"","","", false, "", "","","","","","","","","","","","","","");
-      this.mushrooms = new Array();
-    }
+    this.id = 0;
+    this.mushroomName = "";
+    this.mushroom = new Mushroom(0, "", "", "", false, "", "", "", "", "", "", "", "", "", "", "", "", "", "", "");
+    this.selectedMushroom = new Mushroom(0, "", "", "", false, "", "", "", "", "", "", "", "", "", "", "", "", "", "", "");
+    this.mushrooms = new Array();
+  }
 
   ngOnInit() {
     this.reloadData();
@@ -34,13 +34,13 @@ export class MushroomListComponent implements OnInit {
     this.mushroomService.getMushroomsList().subscribe(apiResponse => {
       this.mushrooms = apiResponse;
     })
-;
+      ;
   }
 
-  onSelect(mushroom: Mushroom):void{
-    this.selectedMushroom=mushroom;
+  onSelect(mushroom: Mushroom): void {
+    this.selectedMushroom = mushroom;
     this.mushroomDetails(this.selectedMushroom.id)
-    }
+  }
 
 
 
@@ -57,7 +57,7 @@ export class MushroomListComponent implements OnInit {
 
   }
 
-  mushroomDetails(id: number){
+  mushroomDetails(id: number) {
     this.router.navigate(['mushroom-details', id]);
   }
 
@@ -71,13 +71,13 @@ export class MushroomListComponent implements OnInit {
     this.mushroomService.searchMushrooms(this.mushroomName).subscribe(apiResponse => {
       this.mushrooms = apiResponse;
     },
-    error => {
-      console.log(error);
-      window.alert("No such mushroom.Try again!")
-    });
+      error => {
+        console.log(error);
+        window.alert("No such mushroom.Try again!")
+      });
   }
 
-  mushroomAdd(){
+  mushroomAdd() {
     this.router.navigate(['mushroom-form']);
   }
 

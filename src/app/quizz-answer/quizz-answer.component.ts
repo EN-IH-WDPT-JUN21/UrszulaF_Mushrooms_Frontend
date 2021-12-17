@@ -13,11 +13,11 @@ export class QuizzAnswerComponent implements OnInit {
 
 
   answers: string[];
-  scores:number;
+  scores: number;
 
-  constructor(private route: ActivatedRoute,    private quizzService: QuizzService, private router: Router) { 
-    this.answers=[];
-    this.scores=0;
+  constructor(private route: ActivatedRoute, private quizzService: QuizzService, private router: Router) {
+    this.answers = [];
+    this.scores = 0;
   }
 
   ngOnInit(): void {
@@ -25,11 +25,11 @@ export class QuizzAnswerComponent implements OnInit {
   }
 
   reloadData() {
-    this.answers=this.quizzService.getAnswers();
-    this.scores=this.quizzService.getScores();
+    this.answers = this.quizzService.getAnswers();
+    this.scores = this.quizzService.getScores();
   }
 
-  again(): void{
+  again(): void {
     localStorage.removeItem('answers');
     localStorage.removeItem('scores');
     this.router.navigate(['quizz/1']);

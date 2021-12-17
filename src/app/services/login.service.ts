@@ -8,34 +8,34 @@ export class LoginService {
 
   url = "http://localhost:8000"
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  generateToken(credentials:any){
-    return this.http.post(`${this.url}/token`,credentials)
+  generateToken(credentials: any) {
+    return this.http.post(`${this.url}/token`, credentials)
   }
 
 
   //caliing server to generate token 
 
-  loginUser(token: string, username: string){
-    localStorage.setItem("token",token);
-    localStorage.setItem("username",username);
+  loginUser(token: string, username: string) {
+    localStorage.setItem("token", token);
+    localStorage.setItem("username", username);
     return true
   }
 
-  isLoggedIn(){
+  isLoggedIn() {
     {
       let token = localStorage.getItem("token");
-      if(token==undefined || token == "" || token == null){
+      if (token == undefined || token == "" || token == null) {
         return false;
 
-      }else{
+      } else {
         return true;
       }
     }
   }
 
-  logout(){
+  logout() {
     localStorage.removeItem('token');
     localStorage.removeItem('username');
     localStorage.removeItem('role');
@@ -43,27 +43,27 @@ export class LoginService {
   }
 
 
-  gettoken(){
+  gettoken() {
     return localStorage.getItem("token");
 
   }
 
 
-  isAdmin(){
-    if (localStorage.getItem('role')=='ADMIN') {
+  isAdmin() {
+    if (localStorage.getItem('role') == 'ADMIN') {
       return true;
 
-    }else{
+    } else {
       return false;
     }
 
   }
 
-  isPremium(){
-    if (localStorage.getItem('role')=='PREMIUM') {
+  isPremium() {
+    if (localStorage.getItem('role') == 'PREMIUM') {
       return true;
 
-    }else{
+    } else {
       return false;
     }
 

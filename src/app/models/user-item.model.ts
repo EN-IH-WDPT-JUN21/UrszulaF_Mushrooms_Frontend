@@ -45,15 +45,15 @@ export class UserItem {
 
 
 
-    constructor( private _id: number,
+    constructor(private _id: number,
         private _photoURL: string,
         private _username: string,
         private _email: string,
         private _password: string,
         private _bio: string,
         private _role: string,
-   
-        ){}
 
-        
-  }
+    ) { }
+
+
+}

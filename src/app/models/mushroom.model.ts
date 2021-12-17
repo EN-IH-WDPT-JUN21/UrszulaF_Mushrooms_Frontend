@@ -121,7 +121,7 @@ export class Mushroom {
     }
 
 
-    constructor( private _id: number,
+    constructor(private _id: number,
         private _photoURL: string,
         private _mushroomName: string,
         private _otherNames: string,
@@ -140,6 +140,6 @@ export class Mushroom {
         private _differentiation: string,
         private _similar: string,
         private _remarks: string,
-        private _foodValue: string        
-        ){}
-  }
+        private _foodValue: string
+    ) { }
+}

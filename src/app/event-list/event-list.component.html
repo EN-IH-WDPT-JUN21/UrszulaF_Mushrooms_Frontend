@@ -1,55 +1,49 @@
 <div class="bg">
-    <br/>
-    <br/>
-      <div class="container">
-      <div class="panel-heading">
-        <h1>{{'EVENT-LIST.Title' | translate}}</h1>
-      </div>
-      <form class ="form" (ngSubmit)="onSubmit()" #form="ngForm">
-        <div class="form-group">
-            <label for="eventType">Event type: </label>
-            <select ngModel name="eventType" required eventType [(ngModel)]="eventType" #eventTypeInput="ngModel">
-              <option value="MUSHROOM_PICKING">Mushroom Picking</option>
-              <option value="FOREST_WALK">Forest Walk</option>
-              <option value="OTHER">Other</option>
-            </select>
-            <button type="submit" class="btn btn-success">Search</button>
+  <br />
+  <br />
+  <div class="container">
+    <div class="panel-heading">
+      <h1>{{'EVENT-LIST.Title' | translate}}</h1>
+    </div>
+    <form class="form" (ngSubmit)="onSubmit()" #form="ngForm">
+      <div class="form-group">
+        <label for="eventType">Event type: </label>
+        <select ngModel name="eventType" required eventType [(ngModel)]="eventType" #eventTypeInput="ngModel">
+          <option value="MUSHROOM_PICKING">Mushroom Picking</option>
+          <option value="FOREST_WALK">Forest Walk</option>
+          <option value="OTHER">Other</option>
+        </select>
+        <button type="submit" class="btn btn-success">Search</button>
 
-            <p class="error-msg" *ngIf="eventTypeInput.invalid && eventTypeInput.touched">Please select an event type</p>
-        </div> 
-        <br/>
-        <br/>
-        <button class="btn btn-warning" (click)="eventAdd()">Add new event</button>
+        <p class="error-msg" *ngIf="eventTypeInput.invalid && eventTypeInput.touched">Please select an event type</p>
+      </div>
+      <br />
+      <br />
+      <button class="btn btn-warning" (click)="eventAdd()">Add new event</button>
     </form>
-      <div class="panel-body">
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th>id</th>
-              <th>name</th>
-              <th>type</th>
-              <th>when</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let event of events; let i = index;" (click)="onSelect(event)" class = "{completed: event.whenEvent < today}">
-                    <td>{{event.id}}</td>
-                    <td>{{event.eventName| replace : '-' : ' '| titlecase}}</td>
-                    <td>{{event.eventType| replace : '_' : ' '| titlecase}}</td>
-                    <td>{{event.whenEvent| date: 'dd/MMM/yyyy h:mm a'}}</td>
-            </tr>
-          </tbody>
-        </table>
-
-      </div>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>type</th>
+            <th>when</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let event of events; let i = index;" (click)="onSelect(event)"
+            class="{completed: event.whenEvent < today}">
+            <td>{{event.id}}</td>
+            <td>{{event.eventName| replace : '-' : ' '| titlecase}}</td>
+            <td>{{event.eventType| replace : '_' : ' '| titlecase}}</td>
+            <td>{{event.whenEvent| date: 'dd/MMM/yyyy h:mm a'}}</td>
+          </tr>
+        </tbody>
+      </table>
 
     </div>
 
-    <!-- <app-event-item *ngIf="selectedEvent" [id]="selectedEvent.id" [event]="selectedEvent" (eventRemoved)="deleteEvent($event)">
-      
-    </app-event-item> -->
-  
-  <br/>
-  <br/>
   </div>
-  
+  <br />
+</div>

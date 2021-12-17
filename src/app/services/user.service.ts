@@ -39,5 +39,5 @@ export class UserService {
   searchUsers(username: string): Observable<any> {
     return this.http.get(`${this.baseUrl}/containing/${username}`);
   }
-  
+
 }

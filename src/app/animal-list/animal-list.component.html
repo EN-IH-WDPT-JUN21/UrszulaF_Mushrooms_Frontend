@@ -1,49 +1,43 @@
 <div class="bg-image">
-    <br/>
-    <br/>
-      <div class="container">
-      <div class="panel-heading">
-        <h1>{{'ANIMAL-LIST.Title' | translate}}</h1>
-      </div>
-      <form class ="form" (ngSubmit)="onSubmit()" #form="ngForm">
-      
-        <div class="form-group">
-            <label for="animalName">animal name: </label>
-        <br/>
-            <input ngModel required animalName minlength="2" pattern="^[a-zA-Z0-9_-]+$" [(ngModel)]="animalName" name="animalName" type="text" placeholder="animal name..." #animalNameInput="ngModel">
-            <button type="submit" class="btn btn-success">Search</button>
-            <p class="error-msg" *ngIf="animalNameInput.invalid && animalNameInput.touched">Please type at least 2 characters of the name only letters, numbers or underscore</p>
-            <button class="btn btn-warning" (click)="animalAdd()">Add animal</button>  
-  
-        </div>    
-    </form>
-      <div class="panel-body">
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th>id</th>
-              <th>name</th>
-              <th>other names</th>
-              <th>type</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let animal of animals; let i = index" (click)="onSelect(animal)">
-              <td>{{animal.id}}</td>
-              <td>{{animal.animalName | replace : '-' : ' '}}</td>
-              <td>{{animal.otherNames | replace : '/' : ', '}}</td>
-              <td>{{animal.animalType}}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+  <br />
+  <br />
+  <div class="container">
+    <div class="panel-heading">
+      <h1>{{'ANIMAL-LIST.Title' | translate}}</h1>
     </div>
-  
-    <!-- <app-animal-item *ngIf="selectedAnimal" [id]="selectedAnimal.id" [animal]="selectedAnimal" (animalRemoved)="deleteAnimal($event)">
-      
-    </app-animal-item> -->
-  
-  <br/>
-  <br/>
+    <form class="form" (ngSubmit)="onSubmit()" #form="ngForm">
+
+      <div class="form-group">
+        <label for="animalName">animal name: </label>
+        <br />
+        <input ngModel required animalName minlength="2" pattern="^[a-zA-Z0-9_-]+$" [(ngModel)]="animalName"
+          name="animalName" type="text" placeholder="animal name..." #animalNameInput="ngModel">
+        <button type="submit" class="btn btn-success">Search</button>
+        <p class="error-msg" *ngIf="animalNameInput.invalid && animalNameInput.touched">Please type at least 2
+          characters of the name only letters, numbers or underscore</p>
+        <button class="btn btn-warning" (click)="animalAdd()">Add animal</button>
+
+      </div>
+    </form>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>other names</th>
+            <th>type</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let animal of animals; let i = index" (click)="onSelect(animal)">
+            <td>{{animal.id}}</td>
+            <td>{{animal.animalName | replace : '-' : ' '}}</td>
+            <td>{{animal.otherNames | replace : '/' : ', '}}</td>
+            <td>{{animal.animalType}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
-  
+</div>

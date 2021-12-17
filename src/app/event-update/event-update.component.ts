@@ -17,7 +17,7 @@ export class EventUpdateComponent implements OnInit {
   event: EventNew;
   selectedEvent: EventItem;
   id: number;
-  eventName0="";
+  eventName0 = "";
 
   eventTypeNames: string[];
 
@@ -30,17 +30,17 @@ export class EventUpdateComponent implements OnInit {
   contactPerson: FormControl;
   description: FormControl;
 
-  constructor(        private eventService: EventService,
+  constructor(private eventService: EventService,
     private activatedRoute: ActivatedRoute,
-    private router: Router) { 
+    private router: Router) {
 
-    this.eventTypeNames=['MUSHROOM_PICKING','FOREST_WALK','OTHER'];
-    this.eventName= new FormControl('',[Validators.required, Validators.minLength(3), CustomValidator.nameValidator]);
-    this.eventTypeName = new FormControl('', [ Validators.required]);
-    this.whenEvent = new FormControl('', [ Validators.required, CustomValidator.dateValidator]);
-    this.duration = new FormControl('', [ Validators.required, Validators.min(1)]);
-    this.whereEvent = new FormControl('', [ Validators.required, Validators.minLength(3)]);
-    this.contactPerson = new FormControl('', [ Validators.required, Validators.minLength(3), CustomValidator.nameValidator]);
+    this.eventTypeNames = ['MUSHROOM_PICKING', 'FOREST_WALK', 'OTHER'];
+    this.eventName = new FormControl('', [Validators.required, Validators.minLength(3), CustomValidator.nameValidator]);
+    this.eventTypeName = new FormControl('', [Validators.required]);
+    this.whenEvent = new FormControl('', [Validators.required, CustomValidator.dateValidator]);
+    this.duration = new FormControl('', [Validators.required, Validators.min(1)]);
+    this.whereEvent = new FormControl('', [Validators.required, Validators.minLength(3)]);
+    this.contactPerson = new FormControl('', [Validators.required, Validators.minLength(3), CustomValidator.nameValidator]);
     this.description = new FormControl('');
 
     this.eventForm = new FormGroup({
@@ -53,9 +53,9 @@ export class EventUpdateComponent implements OnInit {
       description: this.description
     })
 
-    this.event= new EventNew("","",new Date(),0, "", "","");
-    this.selectedEvent= new EventItem(0,"","",new Date(),0, "", "","");
-    this.id=0;
+    this.event = new EventNew("", "", new Date(), 0, "", "", "");
+    this.selectedEvent = new EventItem(0, "", "", new Date(), 0, "", "", "");
+    this.id = 0;
   }
 
   ngOnInit(): void {
@@ -64,7 +64,8 @@ export class EventUpdateComponent implements OnInit {
       .subscribe(data => {
         console.log(data)
         this.selectedEvent = data;
-        this.eventForm.patchValue({eventName: this.selectedEvent.eventName,
+        this.eventForm.patchValue({
+          eventName: this.selectedEvent.eventName,
           eventTypeName: this.selectedEvent.eventType,
           whenEvent: this.selectedEvent.whenEvent,
           duration: this.selectedEvent.duration,
@@ -73,22 +74,22 @@ export class EventUpdateComponent implements OnInit {
           description: this.selectedEvent.description
         });
       }, error => console.log(error));
-      // this.eventForm.get('eventName').setValue(this.selectedEvent.eventName);
-      // this.eventForm.patchValue({eventName: this.selectedEvent.eventName});
+    // this.eventForm.get('eventName').setValue(this.selectedEvent.eventName);
+    // this.eventForm.patchValue({eventName: this.selectedEvent.eventName});
   }
 
 
 
-  onSubmit(): void{
+  onSubmit(): void {
     console.log('Created Event');
     console.log(this.eventForm.value);
 
-// const dateISO=new Date();
+    // const dateISO=new Date();
 
-// const dateISO = moment(this.whenEvent.value).toISOString().slice(0, -1);
-// console.log(dateISO);
+    // const dateISO = moment(this.whenEvent.value).toISOString().slice(0, -1);
+    // console.log(dateISO);
     console.log(this.eventName.value);
-    this.event=new EventNew(this.eventName.value, this.eventTypeName.value,this.whenEvent.value, this.duration.value, this.whereEvent.value, this.contactPerson.value, this.description.value);
+    this.event = new EventNew(this.eventName.value, this.eventTypeName.value, this.whenEvent.value, this.duration.value, this.whereEvent.value, this.contactPerson.value, this.description.value);
     console.log('testpayload', this.event);
     this.updateEvent();
     // this.eventService
@@ -98,19 +99,19 @@ export class EventUpdateComponent implements OnInit {
     //   window.location.href="/event-list";
     // },
     // error => console.log(error));
-   }
+  }
 
-   updateEvent() {
+  updateEvent() {
     this.eventService.updateEvent(this.id, this.eventForm.value)
       .subscribe(data => {
         console.log(data);
-        this.event = new EventNew(this.eventName.value, this.eventTypeName.value,this.whenEvent.value, this.duration.value, this.whereEvent.value, this.contactPerson.value, this.description.value);
+        this.event = new EventNew(this.eventName.value, this.eventTypeName.value, this.whenEvent.value, this.duration.value, this.whereEvent.value, this.contactPerson.value, this.description.value);
         this.eventDetails(this.id);
       }, error => console.log(error));
   }
 
 
-  eventDetails(id: number){
+  eventDetails(id: number) {
     this.router.navigate(['event-details', id]);
   }
 

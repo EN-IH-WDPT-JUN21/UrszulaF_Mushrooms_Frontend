@@ -13,53 +13,53 @@ export class AnimalItemComponent implements OnInit {
   id: number;
   animalName: string;
   animal: Animal;
-  txt:String="";
-  public isAdmin=false;
-  public isPremium=false;
+  txt: String = "";
+  public isAdmin = false;
+  public isPremium = false;
 
 
   clicked = false;
 
-  constructor(private route: ActivatedRoute,    private animalService: AnimalService, private router: Router, private loginService:LoginService) { 
-    this.id=0;
-    this.animalName="";
-    this.animal= new Animal(0,"","","", "", "","","");
-    }
+  constructor(private route: ActivatedRoute, private animalService: AnimalService, private router: Router, private loginService: LoginService) {
+    this.id = 0;
+    this.animalName = "";
+    this.animal = new Animal(0, "", "", "", "", "", "", "");
+  }
 
   ngOnInit(): void {
 
     this.id = this.route.snapshot.params['id'];
-    
+
     this.animalService.getAnimalById(this.id)
       .subscribe(data => {
         console.log(data)
         this.animal = data;
       }, error => console.log(error));
-      this.isAdmin = this.loginService.isAdmin();
-      this.isPremium = this.loginService.isPremium();
+    this.isAdmin = this.loginService.isAdmin();
+    this.isPremium = this.loginService.isPremium();
   }
 
   deleteAnimal(id: number) {
     if (confirm("Are you sure you want to delete this animal?") == true) {
       this.txt = "You pressed OK!";
-    this.animalService.deleteAnimal(id)
-      .subscribe(
-        data => {
-          console.log(data);
-          location.reload();
-        },
-        error => console.log(error));
-        this.animalList();
-      } else {
-        this.txt = "You canceled!";
-      }
+      this.animalService.deleteAnimal(id)
+        .subscribe(
+          data => {
+            console.log(data);
+            location.reload();
+          },
+          error => console.log(error));
+      this.animalList();
+    } else {
+      this.txt = "You canceled!";
+    }
   }
 
-  animalList(): void{
+  animalList(): void {
     this.router.navigate(['animal-list']);
   }
 
-  updateAnimal(id: number){
+  updateAnimal(id: number) {
     this.router.navigate(['animal-update', id]);
   }
 

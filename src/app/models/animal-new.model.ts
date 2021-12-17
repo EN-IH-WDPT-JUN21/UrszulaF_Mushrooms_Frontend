@@ -46,13 +46,13 @@ export class AnimalNew {
 
 
 
-    constructor( 
+    constructor(
         private photoURL: string,
         private animalName: string,
         private otherNames: string,
         private animalType: string,
         private animalSize: string,
         private description: string,
-        private remarks: string     
-        ){}
-  }
+        private remarks: string
+    ) { }
+}

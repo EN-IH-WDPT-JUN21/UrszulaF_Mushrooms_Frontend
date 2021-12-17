@@ -1,4 +1,4 @@
-export class Answer{
+export class Answer {
 
     public get name(): string {
         return this._name;
@@ -6,11 +6,8 @@ export class Answer{
     public set name(value: string) {
         this._name = value;
     }
-    constructor(private _name: string){
+    constructor(private _name: string) {
 
     }
-
-
-
 
 }

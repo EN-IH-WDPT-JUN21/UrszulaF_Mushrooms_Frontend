@@ -1,42 +1,39 @@
-
-
 <div class="bg">
-  <br/>
-  <br/>
+  <br />
+  <br />
+  <div class="container">
+    <h1>{{user.username| titlecase}} - {{'UPDATE.Title' | translate}}</h1>
+    <a href="#" class="image main" *ngIf="user.photoURL==''"><img src="assets/images/mushroomface.jfif" alt=""
+        width=100% /></a>
+    <a href="#" class="image main"><img src="assets/images/{{user.photoURL}}.jpg" alt="" width=100% /></a>
     <div class="container">
-        <h1>{{user.username| titlecase}} - {{'UPDATE.Title' | translate}}</h1>
-        <a href="#" class="image main" *ngIf="user.photoURL==''"><img src="assets/images/mushroomface.jfif" alt="" width=100% /></a>
-        <a href="#" class="image main"><img src="assets/images/{{user.photoURL}}.jpg" alt="" width=100% /></a>
-              <div class="container">
-                <div class="row">
-                    <div class="col-md-6 offset-md-3">
-        <form (ngSubmit)="onSubmit()" [formGroup]="userForm">
+      <div class="row">
+        <div class="col-md-6 offset-md-3">
+          <form (ngSubmit)="onSubmit()" [formGroup]="userForm">
 
 
 
 
-          <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>bio</mat-label>
-            <input type="text" matInput formControlName="bio" placeholder="{{user.bio}}" class="heighttext">
-            <mat-error *ngIf="bio.invalid && (bio.touched || bio.dirty)">
-              Please enter between 4 and 200 letters
-          </mat-error>
-        </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>bio</mat-label>
+              <input type="text" matInput formControlName="bio" placeholder="{{user.bio}}">
+              <mat-error *ngIf="bio.invalid && (bio.touched || bio.dirty)">
+                Please enter between 4 and 200 letters
+              </mat-error>
+            </mat-form-field>
 
 
-      
-            <br/>
+
+            <br />
             <div class="buttons text-center">
-            <button class="btn btn-success" color="primary" type= "submit" [disabled] = "userForm.invalid">Submit</button>
-            <button class="btn btn-warning" (click)="goToProfile()">Cancel</button>
+              <button class="btn btn-success" color="primary" type="submit"
+                [disabled]="userForm.invalid">Submit</button>
+              <button class="btn btn-warning" (click)="goToProfile()">Cancel</button>
             </div>
-        </form>
-      
-      </div>
-      </div>
-      </div>
-      </div>
-      </div>
-      <br/>
-      <br/>
+          </form>
 
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

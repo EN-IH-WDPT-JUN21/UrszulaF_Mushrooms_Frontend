@@ -1,40 +1,37 @@
 <div class="bg">
-    <br/>
-    <br/>
-      <div class="container">
-          <h1>{{'QUIZ-FORM.Title' | translate}}</h1>
-          <a href="#" class="image main"><img src="assets/images/{{mushroom.mushroomName}}M.jpg" alt="" width=100% /></a>
-          <div class="container">
-            <div class="row">
-                <div class="col-md-6 offset-md-3">
-    <form (ngSubmit)="onSubmit()" [formGroup]="quizzForm">
-  <label id="example-radio-group-label">Is it edible?</label>
-  <br/>
-  <br/>
-<mat-radio-group
-  aria-labelledby="example-radio-group-label"
-  class="example-radio-group"
-  formControlName="isEdible">
-    <mat-radio-button value=true>True</mat-radio-button>
-    <mat-radio-button value=false>False</mat-radio-button>
-  </mat-radio-group>
+  <br />
+  <br />
+  <div class="container">
+    <h1>{{'QUIZ-FORM.Title' | translate}}</h1>
+    <a href="#" class="image main"><img src="assets/images/{{mushroom.mushroomName}}M.jpg" alt="" width=100% /></a>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 offset-md-3">
+          <form (ngSubmit)="onSubmit()" [formGroup]="quizzForm">
+            <label id="example-radio-group-label">Is it edible?</label>
+            <br />
+            <br />
+            <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+              formControlName="isEdible">
+              <mat-radio-button value=true>True</mat-radio-button>
+              <mat-radio-button value=false>False</mat-radio-button>
+            </mat-radio-group>
 
- 
-        <br/>
-        <div class="buttons">
-        <button class="btn btn-success" color="primary" type= "submit" [disabled] = "quizzForm.invalid ||     submitted" >Check</button>
-        <button class="btn btn-warning" [disabled] = "quizzForm.invalid ||     !submitted" (click)="goNext()">Next</button>
+
+            <br />
+            <div class="buttons">
+              <button class="btn btn-success" color="primary" type="submit"
+                [disabled]="quizzForm.invalid ||     submitted">Check</button>
+              <button class="btn btn-warning" [disabled]="quizzForm.invalid ||     !submitted"
+                (click)="goNext()">Next</button>
+            </div>
+          </form>
+
         </div>
-    </form>
-
+        <div [hidden]="!submitted" [ngClass]="{wrong: answerType == false}">
+          <p>{{answer}}</p>
+        </div>
+      </div>
+    </div>
   </div>
-  <div [hidden]="!submitted" [ngClass] = "{wrong: answerType == false}">
-    <p>{{answer}}</p>
-</div>  
-  </div>
-  </div>
-  </div>
-  </div>
-  <br/>
-  <br/>
-  
+</div>

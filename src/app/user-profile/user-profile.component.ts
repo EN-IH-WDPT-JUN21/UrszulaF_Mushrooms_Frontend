@@ -16,26 +16,26 @@ export class UserProfileComponent implements OnInit {
   id: number;
   username!: string | any;
   user: UserItem;
-  public isAdmin=false;
+  public isAdmin = false;
   retrieveResonse: any;
   retrievedImage: any;
   base64Data: any;
 
   clicked = false;
 
-  constructor(private route: ActivatedRoute,    private userService: UserService, private router: Router, private loginService:LoginService, private photoService:PhotoService, private httpClient: HttpClient) { 
-    this.id=0;
-    this.username="";
-    this.user= new UserItem(0,"","","", "", "","")
-    }
+  constructor(private route: ActivatedRoute, private userService: UserService, private router: Router, private loginService: LoginService, private photoService: PhotoService, private httpClient: HttpClient) {
+    this.id = 0;
+    this.username = "";
+    this.user = new UserItem(0, "", "", "", "", "", "")
+  }
 
   ngOnInit(): void {
 
     this.username = localStorage.getItem("username");
-    
+
     this.userService.getUser(this.username)
       .subscribe(data => {
-        console.log(data)
+        // console.log(data)
         this.user = data;
         localStorage.setItem(
           'role',
@@ -44,12 +44,12 @@ export class UserProfileComponent implements OnInit {
         this.isAdmin = this.loginService.isAdmin();
         this.getImage();
       }, error => console.log(error));
-      
-      
 
-      if(this.isAdmin){
-        this.goToAdmin();
-      }
+
+
+    if (this.isAdmin) {
+      this.goToAdmin();
+    }
 
 
   }

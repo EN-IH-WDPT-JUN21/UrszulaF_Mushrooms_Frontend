@@ -8,18 +8,19 @@ import { LoginService } from './login.service';
 })
 export class Auth2Guard implements CanActivate {
 
-  constructor(private loginService:LoginService, private router:Router){}
-  
+  constructor(private loginService: LoginService, private router: Router) { }
+
   canActivate(
     route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {4
-    if(this.loginService.isLoggedIn() && this.loginService.isAdmin()){
+    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+      4
+    if (this.loginService.isLoggedIn() && this.loginService.isAdmin()) {
       return true;
     }
     this.router.navigate(['login']);
-    alert("You are not Logged In as Admin");  
+    alert("You are not Logged In as Admin");
     return false;
   }
 
-  
+
 }

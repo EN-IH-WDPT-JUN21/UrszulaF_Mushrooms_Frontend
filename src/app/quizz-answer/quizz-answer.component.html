@@ -1,27 +1,24 @@
 <div class="bg">
-    <br/>
-    <br/>
-      <div class="container">
-          <h1>{{'QUIZ-FORM.Title' | translate}}</h1>
-          <a href="#" class="image main"><img src="assets/images/mushroomsM.jpg" alt="" width=100% /></a>
+  <br />
+  <br />
+  <div class="container">
+    <h1>{{'QUIZ-FORM.Title' | translate}}</h1>
+    <a href="#" class="image main"><img src="assets/images/mushroomsM.jpg" alt="" width=100% /></a>
 
- 
-        <br/>
-        <h4>It the end of the quiz</h4>
-        <p>Your score: {{scores}}</p>
-        <p>Your answers:</p>
-        <ul>
-            <li *ngFor="let answer of answers; let i = index" >
-                
-                   {{answer}}
-             </li>
-        </ul>        
-        <button class="btn btn-success" (click)="again()">Try again?</button>
-        
+
+    <br />
+    <h4>It the end of the quiz</h4>
+    <p>Your score: {{scores}}</p>
+    <p>Your answers:</p>
+    <ul>
+      <li *ngFor="let answer of answers; let i = index">
+
+        {{answer}}
+      </li>
+    </ul>
+    <button class="btn btn-success" (click)="again()">Try again?</button>
+
 
 
   </div>
-  </div>
-
-  <br/>
-  <br/>
+</div>
